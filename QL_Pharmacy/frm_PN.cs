@@ -246,7 +246,7 @@ namespace QL_Pharmacy
         {
             
         }
-
+        //test
         private void btnrefresh_Click(object sender, EventArgs e)
         {
             sql = "select * from dbo.NhapThuoc order by MaPhieuNhap";
