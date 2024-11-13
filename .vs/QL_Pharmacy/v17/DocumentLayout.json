@@ -1,45 +1,45 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\New folder (2)\\QL_Pharmacy2\\",
+  "WorkspaceRootPath": "D:\\New folder (2)\\QL_Pharmacy1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|d:\\new folder (2)\\ql_pharmacy2\\ql_pharmacy\\frm_pn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|solutionrelative:ql_pharmacy\\frm_pn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|D:\\New folder (2)\\QL_Pharmacy2\\ql_pharmacy\\frm_pn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|D:\\New folder (2)\\QL_Pharmacy1\\ql_pharmacy\\frm_pn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|solutionrelative:ql_pharmacy\\frm_pn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|D:\\New folder (2)\\QL_Pharmacy2\\ql_pharmacy\\frm_main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|solutionrelative:ql_pharmacy\\frm_main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|d:\\new folder (2)\\ql_pharmacy1\\ql_pharmacy\\frm_pn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|solutionrelative:ql_pharmacy\\frm_pn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|D:\\New folder (2)\\QL_Pharmacy2\\ql_pharmacy\\frm_pn.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|D:\\New folder (2)\\QL_Pharmacy1\\ql_pharmacy\\frm_pn.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|solutionrelative:ql_pharmacy\\frm_pn.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|D:\\New folder (2)\\QL_Pharmacy2\\ql_pharmacy\\frm_main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|solutionrelative:ql_pharmacy\\frm_main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|D:\\New folder (2)\\QL_Pharmacy2\\ql_pharmacy\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|D:\\New folder (2)\\QL_Pharmacy1\\ql_pharmacy\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|solutionrelative:ql_pharmacy\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|D:\\New folder (2)\\QL_Pharmacy2\\ql_pharmacy\\frm_ctphieunhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|D:\\New folder (2)\\QL_Pharmacy1\\ql_pharmacy\\frm_main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|solutionrelative:ql_pharmacy\\frm_main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|D:\\New folder (2)\\QL_Pharmacy1\\ql_pharmacy\\frm_main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|solutionrelative:ql_pharmacy\\frm_main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|D:\\New folder (2)\\QL_Pharmacy1\\ql_pharmacy\\frm_ctphieunhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|solutionrelative:ql_pharmacy\\frm_ctphieunhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|D:\\New folder (2)\\QL_Pharmacy2\\ql_pharmacy\\hd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|D:\\New folder (2)\\QL_Pharmacy1\\ql_pharmacy\\hd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|solutionrelative:ql_pharmacy\\hd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|D:\\New folder (2)\\QL_Pharmacy2\\ql_pharmacy\\frm_ctphieunhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|D:\\New folder (2)\\QL_Pharmacy1\\ql_pharmacy\\frm_ctphieunhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|solutionrelative:ql_pharmacy\\frm_ctphieunhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|D:\\New folder (2)\\QL_Pharmacy2\\ql_pharmacy\\hd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|D:\\New folder (2)\\QL_Pharmacy1\\ql_pharmacy\\hd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|solutionrelative:ql_pharmacy\\hd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -54,11 +54,11 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "frm_main.cs",
-              "DocumentMoniker": "D:\\New folder (2)\\QL_Pharmacy2\\QL_Pharmacy\\frm_main.cs",
+              "DocumentMoniker": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\frm_main.cs",
               "RelativeDocumentMoniker": "QL_Pharmacy\\frm_main.cs",
-              "ToolTip": "D:\\New folder (2)\\QL_Pharmacy2\\QL_Pharmacy\\frm_main.cs",
+              "ToolTip": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\frm_main.cs",
               "RelativeToolTip": "QL_Pharmacy\\frm_main.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -68,59 +68,59 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "frm_PN.cs",
-              "DocumentMoniker": "D:\\New folder (2)\\QL_Pharmacy2\\QL_Pharmacy\\frm_PN.cs",
-              "RelativeDocumentMoniker": "QL_Pharmacy\\frm_PN.cs",
-              "ToolTip": "D:\\New folder (2)\\QL_Pharmacy2\\QL_Pharmacy\\frm_PN.cs",
-              "RelativeToolTip": "QL_Pharmacy\\frm_PN.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAqwDIAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T18:06:53.763Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "frm_PN.cs [Design]",
-              "DocumentMoniker": "D:\\New folder (2)\\QL_Pharmacy2\\QL_Pharmacy\\frm_PN.cs",
+              "DocumentMoniker": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\frm_PN.cs",
               "RelativeDocumentMoniker": "QL_Pharmacy\\frm_PN.cs",
-              "ToolTip": "D:\\New folder (2)\\QL_Pharmacy2\\QL_Pharmacy\\frm_PN.cs [Design]",
-              "RelativeToolTip": "QL_Pharmacy\\frm_PN.cs [Design]",
+              "ToolTip": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\frm_PN.cs [Design]*",
+              "RelativeToolTip": "QL_Pharmacy\\frm_PN.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T12:45:15.276Z",
+              "WhenOpened": "2024-11-13T17:12:33.663Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "frm_PN.cs",
+              "DocumentMoniker": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\frm_PN.cs",
+              "RelativeDocumentMoniker": "QL_Pharmacy\\frm_PN.cs",
+              "ToolTip": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\frm_PN.cs*",
+              "RelativeToolTip": "QL_Pharmacy\\frm_PN.cs*",
+              "ViewState": "AgIAAKkBAAAAAAAAAAAvwLoBAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T18:06:53.763Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "frm_PN.Designer.cs",
-              "DocumentMoniker": "D:\\New folder (2)\\QL_Pharmacy2\\QL_Pharmacy\\frm_PN.Designer.cs",
+              "DocumentMoniker": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\frm_PN.Designer.cs",
               "RelativeDocumentMoniker": "QL_Pharmacy\\frm_PN.Designer.cs",
-              "ToolTip": "D:\\New folder (2)\\QL_Pharmacy2\\QL_Pharmacy\\frm_PN.Designer.cs",
+              "ToolTip": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\frm_PN.Designer.cs",
               "RelativeToolTip": "QL_Pharmacy\\frm_PN.Designer.cs",
-              "ViewState": "AgIAAGwEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-10T12:45:10.832Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
-              "DocumentMoniker": "D:\\New folder (2)\\QL_Pharmacy2\\QL_Pharmacy\\Program.cs",
+              "DocumentMoniker": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\Program.cs",
               "RelativeDocumentMoniker": "QL_Pharmacy\\Program.cs",
-              "ToolTip": "D:\\New folder (2)\\QL_Pharmacy2\\QL_Pharmacy\\Program.cs",
+              "ToolTip": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\Program.cs",
               "RelativeToolTip": "QL_Pharmacy\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-04T06:04:05.836Z"
+              "WhenOpened": "2024-11-04T06:04:05.836Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "frm_main.cs [Design]",
-              "DocumentMoniker": "D:\\New folder (2)\\QL_Pharmacy2\\QL_Pharmacy\\frm_main.cs",
+              "DocumentMoniker": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\frm_main.cs",
               "RelativeDocumentMoniker": "QL_Pharmacy\\frm_main.cs",
               "ToolTip": "D:\\New folder (2)\\QL_Pharmacy\\QL_Pharmacy\\frm_main.cs [Design]",
               "RelativeToolTip": "..\\QL_Pharmacy\\QL_Pharmacy\\frm_main.cs [Design]",
@@ -131,7 +131,7 @@
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "frm_CTPhieuNhap.cs [Design]",
-              "DocumentMoniker": "D:\\New folder (2)\\QL_Pharmacy2\\QL_Pharmacy\\frm_CTPhieuNhap.cs",
+              "DocumentMoniker": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\frm_CTPhieuNhap.cs",
               "RelativeDocumentMoniker": "QL_Pharmacy\\frm_CTPhieuNhap.cs",
               "ToolTip": "D:\\New folder (2)\\QL_Pharmacy\\QL_Pharmacy\\frm_CTPhieuNhap.cs [Design]",
               "RelativeToolTip": "..\\QL_Pharmacy\\QL_Pharmacy\\frm_CTPhieuNhap.cs [Design]",
@@ -142,9 +142,9 @@
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "frm_CTPhieuNhap.cs",
-              "DocumentMoniker": "D:\\New folder (2)\\QL_Pharmacy2\\QL_Pharmacy\\frm_CTPhieuNhap.cs",
+              "DocumentMoniker": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\frm_CTPhieuNhap.cs",
               "RelativeDocumentMoniker": "QL_Pharmacy\\frm_CTPhieuNhap.cs",
-              "ToolTip": "D:\\New folder (2)\\QL_Pharmacy2\\QL_Pharmacy\\frm_CTPhieuNhap.cs",
+              "ToolTip": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\frm_CTPhieuNhap.cs",
               "RelativeToolTip": "QL_Pharmacy\\frm_CTPhieuNhap.cs",
               "ViewState": "AgIAACYAAAAAAAAAAAAEwDgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -154,9 +154,9 @@
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "HD.cs",
-              "DocumentMoniker": "D:\\New folder (2)\\QL_Pharmacy2\\QL_Pharmacy\\HD.cs",
+              "DocumentMoniker": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\HD.cs",
               "RelativeDocumentMoniker": "QL_Pharmacy\\HD.cs",
-              "ToolTip": "D:\\New folder (2)\\QL_Pharmacy2\\QL_Pharmacy\\HD.cs",
+              "ToolTip": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\HD.cs",
               "RelativeToolTip": "QL_Pharmacy\\HD.cs",
               "ViewState": "AgIAACYAAAAAAAAAAAAEwDgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -166,7 +166,7 @@
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "HD.cs [Design]",
-              "DocumentMoniker": "D:\\New folder (2)\\QL_Pharmacy2\\QL_Pharmacy\\HD.cs",
+              "DocumentMoniker": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\HD.cs",
               "RelativeDocumentMoniker": "QL_Pharmacy\\HD.cs",
               "ToolTip": "D:\\New folder (2)\\QL_Pharmacy\\QL_Pharmacy\\HD.cs [Design]",
               "RelativeToolTip": "..\\QL_Pharmacy\\QL_Pharmacy\\HD.cs [Design]",

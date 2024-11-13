@@ -89,9 +89,9 @@
             this.label10 = new System.Windows.Forms.Label();
             this.panT = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comGTT = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comT = new System.Windows.Forms.ComboBox();
             this.btnrefreshT = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -118,6 +118,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.comDV = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.grdData)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -149,7 +150,7 @@
             this.grdData.TabIndex = 0;
             this.grdData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdData_CellClick);
             this.grdData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdData_CellClick);
-            this.grdData.CurrentCellChanged += new System.EventHandler(this.grdData_CurrentCellChanged);
+           
             // 
             // MaPhieuNhap
             // 
@@ -330,7 +331,7 @@
             this.groupBox1.Size = new System.Drawing.Size(925, 179);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+           
             // 
             // comncc
             // 
@@ -343,7 +344,7 @@
             this.comncc.Size = new System.Drawing.Size(337, 35);
             this.comncc.TabIndex = 22;
             this.comncc.Visible = false;
-            this.comncc.SelectedIndexChanged += new System.EventHandler(this.comncc_SelectedIndexChanged);
+            
             // 
             // txtngaynhap
             // 
@@ -352,7 +353,7 @@
             this.txtngaynhap.Name = "txtngaynhap";
             this.txtngaynhap.Size = new System.Drawing.Size(339, 34);
             this.txtngaynhap.TabIndex = 21;
-            this.txtngaynhap.TextChanged += new System.EventHandler(this.txtngaynhap_TextChanged);
+            
             // 
             // label4
             // 
@@ -373,7 +374,7 @@
             this.label5.Size = new System.Drawing.Size(95, 27);
             this.label5.TabIndex = 17;
             this.label5.Text = "Ngày nhập";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            
             // 
             // label6
             // 
@@ -427,7 +428,7 @@
             this.label8.Size = new System.Drawing.Size(159, 20);
             this.label8.TabIndex = 20;
             this.label8.Text = "Tổng tiền Phiếu nhập";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
+           
             // 
             // txttongtien
             // 
@@ -435,7 +436,7 @@
             this.txttongtien.Name = "txttongtien";
             this.txttongtien.Size = new System.Drawing.Size(310, 26);
             this.txttongtien.TabIndex = 6;
-            this.txttongtien.TextChanged += new System.EventHandler(this.txttongtien_TextChanged);
+          
             // 
             // label2
             // 
@@ -469,7 +470,7 @@
             this.groupBox2.Size = new System.Drawing.Size(913, 60);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+          
             // 
             // comGT
             // 
@@ -478,7 +479,7 @@
             this.comGT.Name = "comGT";
             this.comGT.Size = new System.Drawing.Size(257, 35);
             this.comGT.TabIndex = 17;
-            this.comGT.SelectedIndexChanged += new System.EventHandler(this.comGT_SelectedIndexChanged);
+         
             // 
             // comTentruong
             // 
@@ -505,7 +506,7 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1040, 1079);
             this.panel6.TabIndex = 49;
-            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
+          
             // 
             // panCTPN
             // 
@@ -515,7 +516,7 @@
             this.panCTPN.Name = "panCTPN";
             this.panCTPN.Size = new System.Drawing.Size(1006, 332);
             this.panCTPN.TabIndex = 49;
-            this.panCTPN.Paint += new System.Windows.Forms.PaintEventHandler(this.panCTPN_Paint);
+          
             // 
             // panel5
             // 
@@ -547,6 +548,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.comDV);
             this.panel3.Controls.Add(this.label16);
             this.panel3.Controls.Add(this.txtMaThuoc);
             this.panel3.Controls.Add(this.btndelCT);
@@ -579,7 +581,7 @@
             this.label16.Size = new System.Drawing.Size(51, 27);
             this.label16.TabIndex = 47;
             this.label16.Text = "Số lô";
-            this.label16.Click += new System.EventHandler(this.label16_Click);
+        
             // 
             // txtMaThuoc
             // 
@@ -739,9 +741,9 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.comboBox1);
+            this.groupBox3.Controls.Add(this.comGTT);
             this.groupBox3.Controls.Add(this.label19);
-            this.groupBox3.Controls.Add(this.comboBox2);
+            this.groupBox3.Controls.Add(this.comT);
             this.groupBox3.Controls.Add(this.btnrefreshT);
             this.groupBox3.Controls.Add(this.label20);
             this.groupBox3.Controls.Add(this.label21);
@@ -754,15 +756,15 @@
             this.groupBox3.TabIndex = 43;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tìm thuốc";
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            
             // 
-            // comboBox1
+            // comGTT
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(419, 23);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(350, 35);
-            this.comboBox1.TabIndex = 31;
+            this.comGTT.FormattingEnabled = true;
+            this.comGTT.Location = new System.Drawing.Point(419, 23);
+            this.comGTT.Name = "comGTT";
+            this.comGTT.Size = new System.Drawing.Size(350, 35);
+            this.comGTT.TabIndex = 31;
             // 
             // label19
             // 
@@ -773,13 +775,13 @@
             this.label19.TabIndex = 5;
             this.label19.Text = "Giá trị";
             // 
-            // comboBox2
+            // comT
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(110, 25);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(188, 35);
-            this.comboBox2.TabIndex = 30;
+            this.comT.FormattingEnabled = true;
+            this.comT.Location = new System.Drawing.Point(110, 25);
+            this.comT.Name = "comT";
+            this.comT.Size = new System.Drawing.Size(188, 35);
+            this.comT.TabIndex = 30;
             // 
             // btnrefreshT
             // 
@@ -937,7 +939,7 @@
             this.grdCTNhap.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCTNhap_CellClick);
             this.grdCTNhap.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCTNhap_CellContentClick);
             this.grdCTNhap.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grdCTNhap_CellMouseClick);
-            this.grdCTNhap.MouseEnter += new System.EventHandler(this.grdCTNhap_MouseEnter);
+            
             // 
             // MaThuoc
             // 
@@ -1019,7 +1021,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(925, 97);
             this.panel1.TabIndex = 50;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
+          
             // 
             // label18
             // 
@@ -1031,7 +1033,7 @@
             this.label18.Size = new System.Drawing.Size(153, 30);
             this.label18.TabIndex = 17;
             this.label18.Text = "HÓA ĐƠN NHẬP";
-            this.label18.Click += new System.EventHandler(this.label18_Click);
+           
             // 
             // label1
             // 
@@ -1043,6 +1045,17 @@
             this.label1.Size = new System.Drawing.Size(188, 27);
             this.label1.TabIndex = 51;
             this.label1.Text = "CHI TIẾT PHIẾU NHẬP";
+            // 
+            // comDV
+            // 
+            this.comDV.FormattingEnabled = true;
+            this.comDV.Location = new System.Drawing.Point(6, 131);
+            this.comDV.Name = "comDV";
+            this.comDV.Size = new System.Drawing.Size(160, 35);
+            this.comDV.TabIndex = 48;
+            this.comDV.Visible = false;
+            this.comDV.DropDown += new System.EventHandler(this.comDV_DropDown);
+            
             // 
             // frm_PN
             // 
@@ -1150,9 +1163,9 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comGTT;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comT;
         private System.Windows.Forms.Button btnrefreshT;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
@@ -1182,5 +1195,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tenloaithuoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn dvcoso;
         private System.Windows.Forms.DataGridViewTextBoxColumn hangsx;
+        private System.Windows.Forms.ComboBox comDV;
     }
 }

@@ -18,12 +18,13 @@ namespace QL_Pharmacy
         SqlDataAdapter daT = new SqlDataAdapter();
         SqlDataAdapter daCT = new SqlDataAdapter();
         SqlDataAdapter dancc = new SqlDataAdapter();
+        SqlDataAdapter daDV = new SqlDataAdapter();
         SqlCommand cmd = new SqlCommand();
         DataTable dt = new DataTable();
         DataTable dtT = new DataTable();
         DataTable dtCT = new DataTable();
         DataTable comdt = new DataTable();
-       
+        bool maT = false;
         string sql, constr;
         public frm_PN()
         {
@@ -435,9 +436,15 @@ namespace QL_Pharmacy
 
         private void grdT_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (maT)
+            {
+                // Lấy mã thuốc từ `grdT` và điền vào `txtMaThuoc`
+               
+                    txtMaThuoc.Text = grdT.SelectedCells[0].Value.ToString();
+                
+            }
         }
-
+        
         private void label16_Click(object sender, EventArgs e)
         {
 
@@ -523,6 +530,34 @@ namespace QL_Pharmacy
             
         }
 
+        private void comDV_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void comDV_DropDown(object sender, EventArgs e)
+        {
+
+            // Gán dữ liệu từ DataTable vào ComboBox comDV
+            DataTable dtcomDV = new DataTable();
+            string sql = $"SELECT ql.dvcoso AS DonVi FROM dbo.QL_Thuoc ql WHERE ql.MaThuoc = '{txtMaThuoc.Text}' UNION SELECT qd.DonViQuyDoi AS DonVi FROM dbo.QuyDoiDonVi qd WHERE qd.MaThuoc = '{txtMaThuoc.Text}'";
+            daDV = new SqlDataAdapter(sql, conn);
+            daDV.Fill(dtcomDV);
+
+            // Kiểm tra nếu có dữ liệu
+            if (dtcomDV.Rows.Count > 0)
+            {
+                // Gán dữ liệu vào ComboBox
+                comDV.DataSource = dtcomDV;
+                comDV.DisplayMember = "DonVi";
+                comDV.ValueMember = "DonVi";
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy đơn vị nào cho mã thuốc này.");
+                comDV.DataSource = null;
+            }
+        }
+
         // Cờ để kiểm soát khi nào dòng hiện tại bị khóa
         private bool isLocked = false;
         private void button5_Click(object sender, EventArgs e)
@@ -548,11 +583,48 @@ namespace QL_Pharmacy
             txttenncc.ReadOnly = true;
             txttongtien.ReadOnly = true;
             grdData.ReadOnly = true;
-            // Lấy mã thuốc từ `grdT` và điền vào `txtMaThuoc`
-            if (grdT.SelectedRows.Count > 0)
+            maT = true;
+            // Ẩn TextBox và hiển thị ComboBox
+            txtDonViNhap.Visible = false;
+            comDV.Visible = true;
+
+            // Kiểm tra kết nối
+            if (conn.State == ConnectionState.Closed)
             {
-                txtMaThuoc.Text = grdT.SelectedRows[0].Cells["MaThuoc"].Value.ToString();
+                conn.Open();
             }
+            // Lấy mã thuốc từ `grdT` và điền vào `txtMaThuoc`
+            //if (grdT.SelectedRows.Count > 0)
+            //{
+            //    txtMaThuoc.Text = grdT.SelectedRows[0].Cells["ID"].Value?.ToString();
+            //}
+            // Kiểm tra nếu txtMaThuoc.Text có giá trị
+            if (string.IsNullOrEmpty(txtMaThuoc.Text))
+            {
+                MessageBox.Show("Vui lòng nhập mã thuốc.");
+                return;
+            }
+
+            //// Gán dữ liệu từ DataTable vào ComboBox comDV
+            //DataTable dtcomDV = new DataTable();
+            //string sql = $"SELECT ql.dvcoso AS DonVi FROM dbo.QL_Thuoc ql WHERE ql.MaThuoc = '%{txtMaThuoc.Text}%' UNION SELECT qd.DonViQuyDoi AS DonVi FROM dbo.QuyDoiDonVi qd WHERE qd.MaThuoc = '%{txtMaThuoc.Text }%'";
+            //daDV = new SqlDataAdapter(sql, conn);
+            //daDV.Fill(dtcomDV);
+
+            //// Kiểm tra nếu có dữ liệu
+            //if (dtcomDV.Rows.Count > 0)
+            //{
+            //    // Gán dữ liệu vào ComboBox
+            //    comDV.DataSource = dtcomDV;
+            //    comDV.DisplayMember = "DonVi";
+            //    comDV.ValueMember = "DonVi";
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Không tìm thấy đơn vị nào cho mã thuốc này.");
+            //    comDV.DataSource = null;
+            //}
+           
 
             // Lưu chỉ số dòng hiện tại trong `DataGridView` phiếu nhập
             if (grdData.SelectedRows.Count > 0)
