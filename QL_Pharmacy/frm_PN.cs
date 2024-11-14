@@ -692,9 +692,29 @@ namespace QL_Pharmacy
             }
         }
 
-
-
-
+        private void txtslDonViNhap_Leave(object sender, EventArgs e)
+        {
+            // Kiểm tra xem các ô textbox có trống hay không
+            if (!string.IsNullOrEmpty(txtslDonViNhap.Text) && !string.IsNullOrEmpty(txtGiaNhap.Text))
+            {
+                // Chuyển đổi giá trị của các ô thành kiểu số
+                if (decimal.TryParse(txtslDonViNhap.Text, out decimal slDonViNhap) && decimal.TryParse(txtGiaNhap.Text, out decimal giaNhap))
+                {
+                    // Tính và điền vào ô txtThanhTien
+                    decimal thanhTien = slDonViNhap * giaNhap;
+                    txtThanhTien.Text = thanhTien.ToString("0.00"); // Định dạng thành số thập phân 2 chữ số
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập đúng định dạng số vào các ô Số lượng và Giá nhập.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                // Nếu có ô trống, bạn có thể đặt giá trị mặc định cho txtThanhTien hoặc không làm gì
+                txtThanhTien.Clear(); // Xóa ô txtThanhTien nếu có ô trống
+            }
+        }
 
 
         // Cờ để kiểm soát khi nào dòng hiện tại bị khóa

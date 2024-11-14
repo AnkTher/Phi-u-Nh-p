@@ -670,6 +670,7 @@
             this.txtslDonViNhap.Name = "txtslDonViNhap";
             this.txtslDonViNhap.Size = new System.Drawing.Size(277, 34);
             this.txtslDonViNhap.TabIndex = 25;
+            this.txtslDonViNhap.Leave += new System.EventHandler(this.txtslDonViNhap_Leave);
             // 
             // txtDonViNhap
             // 

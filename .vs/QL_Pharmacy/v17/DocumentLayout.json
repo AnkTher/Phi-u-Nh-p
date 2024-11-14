@@ -63,8 +63,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-04T05:31:07.52Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -74,7 +73,7 @@
               "RelativeDocumentMoniker": "QL_Pharmacy\\frm_PN.cs",
               "ToolTip": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\frm_PN.cs*",
               "RelativeToolTip": "QL_Pharmacy\\frm_PN.cs*",
-              "ViewState": "AgIAABoCAAAAAAAAAAAAADYCAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAKsCAAAAAAAAAAAuwMsCAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-10T18:06:53.763Z",
               "EditorCaption": ""
@@ -97,9 +96,9 @@
               "Title": "frm_PN.Designer.cs",
               "DocumentMoniker": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\frm_PN.Designer.cs",
               "RelativeDocumentMoniker": "QL_Pharmacy\\frm_PN.Designer.cs",
-              "ToolTip": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\frm_PN.Designer.cs",
-              "RelativeToolTip": "QL_Pharmacy\\frm_PN.Designer.cs",
-              "ViewState": "AgIAAJoCAAAAAAAAAAAhwK4CAAAAAAAAAAAAAA==",
+              "ToolTip": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\frm_PN.Designer.cs*",
+              "RelativeToolTip": "QL_Pharmacy\\frm_PN.Designer.cs*",
+              "ViewState": "AgIAAIwCAAAAAAAAAAAhwKACAABcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-10T12:45:10.832Z",
               "EditorCaption": ""
@@ -125,8 +124,7 @@
               "ToolTip": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\frm_main.cs [Design]",
               "RelativeToolTip": "QL_Pharmacy\\frm_main.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-04T03:43:14.047Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-11-04T03:43:14.047Z"
             },
             {
               "$type": "Document",
