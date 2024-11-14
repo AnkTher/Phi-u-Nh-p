@@ -365,6 +365,32 @@ namespace QL_Pharmacy
             grdData.Refresh();
             NapCT();
         }
+        private void NapLaiCT()
+        {
+            // Câu lệnh SQL để lấy dữ liệu
+            string sql = "SELECT SoLo, MaThuoc, NgaySanXuat, NgayHetHan, DonViNhap, slDonViNhap, GiaNhap, " +
+                         "(slDonViNhap * GiaNhap) AS ThanhTien " + // Tính giá trị ThanhTien
+                         "FROM ChiTietPhieuNhap " +
+                         "WHERE MaPhieuNhap = @MaPhieuNhap";
+
+            // Tạo SqlDataAdapter và thiết lập tham số
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
+
+            // Chuyển đổi MaPhieuNhap thành chuỗi và thiết lập nó vào tham số
+            adapter.SelectCommand.Parameters.AddWithValue("@MaPhieuNhap", txtmaPN.Text.ToString());
+
+            // Tạo DataTable và làm mới dữ liệu
+          
+            dtCT.Clear();
+
+            // Thực hiện lệnh và đổ dữ liệu vào DataTable
+            adapter.Fill(dtCT);
+
+            // Gán dữ liệu vào DataGridView và làm mới
+            grdCTNhap.DataSource = dtCT;
+            grdCTNhap.Refresh();
+            NapCTPN();
+        }
         private void LoadData()
         {
             try
@@ -521,9 +547,31 @@ namespace QL_Pharmacy
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin.");
                 return;
             }
+            // Kiểm tra sự trùng lặp của mã thuốc, số lô và ngày hết hạn
+            string checkDateSql = "SELECT COUNT(1) FROM dbo.ChiTietPhieuNhap WHERE MaThuoc = @MaThuoc AND SoLo = @SoLo AND NgayHetHan <> @NgayHetHan";
+
+            using (SqlCommand checkDateCmd = new SqlCommand(checkDateSql, conn))
+            {
+                checkDateCmd.Parameters.AddWithValue("@MaThuoc", txtMaThuoc.Text);
+                checkDateCmd.Parameters.AddWithValue("@SoLo", txtSoLo.Text);
+                checkDateCmd.Parameters.AddWithValue("@NgayHetHan", dtNHH.Value.ToString("yyyy-MM-dd"));
+
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+
+                int dateConflict = (int)checkDateCmd.ExecuteScalar();
+
+                if (dateConflict > 0)
+                {
+                    MessageBox.Show("Không thể có ngày hết hạn khác nhau cho cùng số lô thuốc của mã thuốc này!", "Lỗi ngày hết hạn", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            // Kiểm tra nếu giá trị đã tồn tại
             string checkSql = "SELECT COUNT(1) FROM dbo.ChiTietPhieuNhap WHERE MaPhieuNhap = @MaPhieuNhap AND MaThuoc = @MaThuoc AND SoLo = @SoLo";
 
-            // Kiểm tra nếu giá trị đã tồn tại
             using (SqlCommand checkCmd = new SqlCommand(checkSql, conn))
             {
                 checkCmd.Parameters.AddWithValue("@MaPhieuNhap", txtmaPN.Text);
@@ -581,6 +629,8 @@ namespace QL_Pharmacy
                 if (rowsAffected > 0)
                 {
                     MessageBox.Show("Thêm chi tiết hóa đơn thành công vào cơ sở dữ liệu!");
+                    Naplai();
+                    NapLaiCT();
                 }
                 else
                 {
@@ -594,11 +644,58 @@ namespace QL_Pharmacy
                 conn.Close();
             }
         }
-    
 
-        
+        private void dtNHH_ValueChanged(object sender, EventArgs e)
+        {
+            // Lấy giá trị hiện tại từ các TextBox
+            string maThuoc = txtMaThuoc.Text;
+            string soLo = txtSoLo.Text;
+            DateTime ngayHetHanMoi = dtNHH.Value;
 
-        
+            // Kiểm tra các ô MaThuoc và SoLo đã có giá trị hay chưa
+            if (!string.IsNullOrEmpty(maThuoc) && !string.IsNullOrEmpty(soLo))
+            {
+                // Câu truy vấn để kiểm tra sự tồn tại của bản ghi với MaThuoc và SoLo nhưng có NgayHetHan khác nhau
+                string sql = "SELECT COUNT(*) FROM ChiTietPhieuNhap " +
+                             "WHERE MaThuoc = @MaThuoc AND SoLo = @SoLo AND NgayHetHan != @NgayHetHan";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    // Thêm tham số cho câu truy vấn
+                    cmd.Parameters.AddWithValue("@MaThuoc", maThuoc);
+                    cmd.Parameters.AddWithValue("@SoLo", soLo);
+                    cmd.Parameters.AddWithValue("@NgayHetHan", ngayHetHanMoi);
+
+                    // Mở kết nối nếu nó chưa mở
+                    if (conn.State != ConnectionState.Open)
+                    {
+                        conn.Open();
+                    }
+
+                    // Thực thi câu lệnh và lấy kết quả
+                    int count = (int)cmd.ExecuteScalar();
+
+                    // Kiểm tra nếu tồn tại bản ghi không thỏa mãn điều kiện
+                    if (count > 0)
+                    {
+                        // Hiển thị thông báo lỗi
+                        MessageBox.Show("Không thể có ngày hết hạn khác nhau cho cùng số lô thuốc của mã thuốc này!",
+                                        "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        // Đặt lại DateTimePicker để người dùng chọn lại
+                        dtNHH.Focus();
+
+                        // Thoát khỏi sự kiện mà không thực hiện các bước tiếp theo
+                        return;
+                    }
+                }
+            }
+        }
+
+
+
+
+
 
         // Cờ để kiểm soát khi nào dòng hiện tại bị khóa
         private bool isLocked = false;

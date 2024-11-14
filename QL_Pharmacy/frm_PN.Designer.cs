@@ -68,6 +68,8 @@
             this.btnreturn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.dtNHH = new System.Windows.Forms.DateTimePicker();
+            this.dtNSX = new System.Windows.Forms.DateTimePicker();
             this.comDV = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txtMaThuoc = new System.Windows.Forms.TextBox();
@@ -119,8 +121,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dtNSX = new System.Windows.Forms.DateTimePicker();
-            this.dtNHH = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.grdData)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -566,6 +566,27 @@
             this.panel3.Size = new System.Drawing.Size(974, 272);
             this.panel3.TabIndex = 45;
             // 
+            // dtNHH
+            // 
+            this.dtNHH.CustomFormat = "dd/MM/yyyy";
+            this.dtNHH.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtNHH.Location = new System.Drawing.Point(709, 38);
+            this.dtNHH.Name = "dtNHH";
+            this.dtNHH.Size = new System.Drawing.Size(265, 34);
+            this.dtNHH.TabIndex = 50;
+            this.dtNHH.Visible = false;
+            this.dtNHH.ValueChanged += new System.EventHandler(this.dtNHH_ValueChanged);
+            // 
+            // dtNSX
+            // 
+            this.dtNSX.CustomFormat = "dd/MM/yyyy";
+            this.dtNSX.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtNSX.Location = new System.Drawing.Point(417, 38);
+            this.dtNSX.Name = "dtNSX";
+            this.dtNSX.Size = new System.Drawing.Size(265, 34);
+            this.dtNSX.TabIndex = 49;
+            this.dtNSX.Visible = false;
+            // 
             // comDV
             // 
             this.comDV.FormattingEnabled = true;
@@ -663,7 +684,6 @@
             this.txtNgayHetHan.Name = "txtNgayHetHan";
             this.txtNgayHetHan.Size = new System.Drawing.Size(251, 34);
             this.txtNgayHetHan.TabIndex = 23;
-           
             // 
             // txtNgaySanXuat
             // 
@@ -671,7 +691,6 @@
             this.txtNgaySanXuat.Name = "txtNgaySanXuat";
             this.txtNgaySanXuat.Size = new System.Drawing.Size(265, 34);
             this.txtNgaySanXuat.TabIndex = 22;
-        
             // 
             // txtSoLo
             // 
@@ -1046,26 +1065,6 @@
             this.label1.Size = new System.Drawing.Size(188, 27);
             this.label1.TabIndex = 51;
             this.label1.Text = "CHI TIẾT PHIẾU NHẬP";
-            // 
-            // dtNSX
-            // 
-            this.dtNSX.CustomFormat = "dd/MM/yyyy";
-            this.dtNSX.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtNSX.Location = new System.Drawing.Point(417, 38);
-            this.dtNSX.Name = "dtNSX";
-            this.dtNSX.Size = new System.Drawing.Size(265, 34);
-            this.dtNSX.TabIndex = 49;
-            this.dtNSX.Visible = false;
-            // 
-            // dtNHH
-            // 
-            this.dtNHH.CustomFormat = "dd/MM/yyyy";
-            this.dtNHH.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtNHH.Location = new System.Drawing.Point(709, 38);
-            this.dtNHH.Name = "dtNHH";
-            this.dtNHH.Size = new System.Drawing.Size(265, 34);
-            this.dtNHH.TabIndex = 50;
-            this.dtNHH.Visible = false;
             // 
             // frm_PN
             // 
