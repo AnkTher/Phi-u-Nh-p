@@ -30,7 +30,7 @@ namespace QL_Pharmacy
         {
             InitializeComponent();
         }
-       
+
         private void frm_PN_Load(object sender, EventArgs e)
         {// thiet lap ket noi voi csdl
             constr = "Data Source=DESKTOP-7NII7JG\\MSQL;Initial Catalog=\"QL NHA THUOC\";Integrated Security=True;Encrypt=False";
@@ -48,10 +48,6 @@ namespace QL_Pharmacy
         {
             NapCT();
             LoadDataToGridView();
-          
-        }
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
 
         }
 
@@ -98,13 +94,19 @@ namespace QL_Pharmacy
 
         public void NapCT()
         {
-              int i = grdData.CurrentRow.Index;
+            txtmaPN.ReadOnly = true;
+            txtngaynhap.ReadOnly = true;
+            txttenncc.ReadOnly = true;
+            txttenthukhonhap.ReadOnly = true;
+            txttongtien.ReadOnly = true;
+            txttenthukhonhap.ReadOnly = true;
+            int i = grdData.CurrentRow.Index;
             txtmaPN.Text = grdData.Rows[i].Cells["MaPhieuNhap"].Value?.ToString();
             txtngaynhap.Text = grdData.Rows[i].Cells["NgayLap"].Value?.ToString();
             txttenthukhonhap.Text = grdData.Rows[i].Cells["thukhonhap"].Value?.ToString();
             txttenncc.Text = grdData.Rows[i].Cells["tenncc"].Value?.ToString();
             txttongtien.Text = grdData.Rows[i].Cells["TongTien"].Value?.ToString();
-            
+
         }
 
         private void comTentruong_SelectedIndexChanged(object sender, EventArgs e)
@@ -112,7 +114,7 @@ namespace QL_Pharmacy
             //tim theo ma hang lay vao combobox
             if (comTentruong.Text != "tenncc")
             {
-                sql = "select distinct MaPhieuNhap, " + comTentruong.Text + " from dbo.NhapThuoc WHERE '"+ comTentruong.Text +"' IS NOT NULL AND '" + comTentruong.Text + "' <> ''";
+                sql = "select distinct MaPhieuNhap, " + comTentruong.Text + " from dbo.NhapThuoc WHERE '" + comTentruong.Text + "' IS NOT NULL AND '" + comTentruong.Text + "' <> ''";
                 da = new SqlDataAdapter(sql, conn);
                 comdt.Clear();
                 da.Fill(comdt);
@@ -144,13 +146,9 @@ namespace QL_Pharmacy
                 comGT.DisplayMember = selectedField; // Hiển thị giá trị của trường đã chọn
                 comGT.ValueMember = selectedField; // Giá trị tương ứng
             }
-  
+
         }
 
-        private void comGT_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
 
         private void btnadd_Click(object sender, EventArgs e)
         {
@@ -160,6 +158,10 @@ namespace QL_Pharmacy
             txttenthukhonhap.Text = " ";
             txttongtien.Text = " ";
             txttenthukhonhap.Focus();
+            txttenncc.ReadOnly = false;
+            txttenthukhonhap.ReadOnly = false;
+            txttongtien.ReadOnly = true;
+            txttenthukhonhap.ReadOnly = false;
             // Ẩn txttenncc và hiện comncc
             txttenncc.Visible = false;
             comncc.Visible = true;
@@ -213,6 +215,10 @@ namespace QL_Pharmacy
             cmd.ExecuteNonQuery();
             MessageBox.Show("Đã thêm mới thành công!");
             Naplai();
+            txttenncc.ReadOnly = true;
+            txttenthukhonhap.ReadOnly = true;
+            txttongtien.ReadOnly = false;
+            //ẩn combo box hiện text box
             comncc.Visible = false;
             txttenncc.Visible = true;
         }
@@ -243,10 +249,7 @@ namespace QL_Pharmacy
                 e.Cancel = true; // Hủy bỏ việc đóng form nếu người dùng chọn No
             }
         }
-        private void comncc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
+
         //test
         private void btnrefresh_Click(object sender, EventArgs e)
         {
@@ -276,37 +279,42 @@ namespace QL_Pharmacy
 
         private void btndel_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có chắc chắn muốn xóa bản ghi hiện thời?","Xác nhận yêu cầu xóa"
-                ,MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes)
+            if (MessageBox.Show("Bạn có chắc chắn muốn xóa bản ghi hiện thời?", "Xác nhận yêu cầu xóa"
+                , MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 sql = "delete from dbo.ChiTietPhieuNhap where MaPhieuNhap='" + txtmaPN.Text + "'";
                 sql = "delete from dbo.NhapThuoc where MaPhieuNhap='" + txtmaPN.Text + "'";
-               
-                cmd =new SqlCommand(sql, conn);
+
+                cmd = new SqlCommand(sql, conn);
                 cmd.ExecuteNonQuery();
                 Naplai();
-            }    
+            }
         }
 
         private void btnedit_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Hãy thực hiện sửa nội dung dữ liệu trên ô lưới, kết thúc bằng việc cập nhật.");
-        
+
             if (grdData.CurrentRow != null) // Kiểm tra nếu có bản ghi đang được chọn
             {
-                    // Thiết lập txtmaPN và txtngaynhap không cho phép chỉnh sửa
-                    txtmaPN.ReadOnly = true;
-                    txtngaynhap.ReadOnly = true;
+                // Thiết lập txtmaPN và txtngaynhap không cho phép chỉnh sửa
+                txtmaPN.ReadOnly = true;
+                txtngaynhap.ReadOnly = true;
 
-                    // Lấy thông tin từ bản ghi đang chọn
-                    int i = grdData.CurrentRow.Index;
+                txttenncc.ReadOnly = false;
+                txttenthukhonhap.ReadOnly = false;
+
+                txttenthukhonhap.ReadOnly = false;
+
+                // Lấy thông tin từ bản ghi đang chọn
+                int i = grdData.CurrentRow.Index;
                 txtmaPN.Text = grdData.Rows[i].Cells["MaPhieuNhap"].Value.ToString();
                 txtngaynhap.Text = grdData.Rows[i].Cells["NgayLap"].Value.ToString();
                 txttenthukhonhap.Text = grdData.Rows[i].Cells["thukhonhap"].Value.ToString();
                 txttenncc.Text = grdData.Rows[i].Cells["tenncc"].Value.ToString();
                 txttongtien.Text = grdData.Rows[i].Cells["TongTien"].Value.ToString();
 
-                
+
                 // Ẩn txttenncc và hiển thị comncc
                 txttenncc.Visible = false;
                 comncc.Visible = true;
@@ -328,8 +336,8 @@ namespace QL_Pharmacy
             {
                 MessageBox.Show("Vui lòng chọn một bản ghi để chỉnh sửa.");
             }
-        
-}
+
+        }
 
         private void btnCTPN_Click(object sender, EventArgs e)
         {
@@ -338,64 +346,14 @@ namespace QL_Pharmacy
 
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtngaynhap_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txttongtien_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label18_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-   
-        }
 
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
-            LoadData();  
-        }
-        public void NapT()
-        {
-            
+            LoadData();
         }
 
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
 
-        }
+
 
         private void Naplai()
         {
@@ -424,41 +382,30 @@ namespace QL_Pharmacy
             }
         }
 
-        private void panCTPN_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
 
-        }
 
         private void grdT_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (maT)
             {
                 // Lấy mã thuốc từ `grdT` và điền vào `txtMaThuoc`
-               
-                    txtMaThuoc.Text = grdT.SelectedCells[0].Value.ToString();
-                
+
+                txtMaThuoc.Text = grdT.SelectedCells[0].Value.ToString();
+                //
+
             }
         }
-        
-        private void label16_Click(object sender, EventArgs e)
-        {
 
-        }
+
 
         private void grdCTNhap_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             NapCTPN();
         }
 
-        private void grdT_SelectionChanged(object sender, EventArgs e)
-        {
-           
-        }
+
         private void LoadDataToGridView()
         {
             // Kiểm tra nếu có hàng nào được chọn trong grdData
@@ -511,10 +458,6 @@ namespace QL_Pharmacy
             NapCTPN();
         }
 
-        private void grdCTNhap_MouseEnter(object sender, EventArgs e)
-        {
-            
-        }
 
         private void grdCTNhap_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -525,14 +468,6 @@ namespace QL_Pharmacy
         private string maPN, ngayNhap, tenThuKhoNhap, tenNCC, tongTien;
         // Cờ để tránh gọi lại đệ quy
         private bool isHandlingSelection = false;
-        private void grdData_CurrentCellChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void comDV_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
 
         private void comDV_DropDown(object sender, EventArgs e)
         {
@@ -541,6 +476,7 @@ namespace QL_Pharmacy
             DataTable dtcomDV = new DataTable();
             string sql = $"SELECT ql.dvcoso AS DonVi FROM dbo.QL_Thuoc ql WHERE ql.MaThuoc = '{txtMaThuoc.Text}' UNION SELECT qd.DonViQuyDoi AS DonVi FROM dbo.QuyDoiDonVi qd WHERE qd.MaThuoc = '{txtMaThuoc.Text}'";
             daDV = new SqlDataAdapter(sql, conn);
+            dtcomDV.Clear();
             daDV.Fill(dtcomDV);
 
             // Kiểm tra nếu có dữ liệu
@@ -558,18 +494,135 @@ namespace QL_Pharmacy
             }
         }
 
+        private void btnudateCT_Click(object sender, EventArgs e)
+        {
+            dtNSX.Visible = false;
+            dtNHH.Visible = false;
+            txtNgaySanXuat.Visible = true;
+            txtNgayHetHan.Visible = true;
+            txtMaThuoc.ReadOnly = true;
+            txtSoLo.ReadOnly = true;
+            txtNgaySanXuat.ReadOnly = true;
+            txtNgayHetHan.ReadOnly = true;
+            txtDonViNhap.ReadOnly = true;
+            txtslDonViNhap.ReadOnly = true;
+            txtGiaNhap.ReadOnly = true;
+            // Hiện TextBox và ẩn ComboBox
+            txtDonViNhap.Visible = true;
+            comDV.Visible = false;
+            // Kiểm tra các trường dữ liệu đầu vào có rỗng không
+            if (string.IsNullOrEmpty(txtmaPN.Text) ||
+                string.IsNullOrEmpty(txtMaThuoc.Text) ||
+                string.IsNullOrEmpty(txtSoLo.Text) ||
+                comDV.SelectedValue == null ||
+                string.IsNullOrEmpty(txtslDonViNhap.Text) ||
+                string.IsNullOrEmpty(txtGiaNhap.Text))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin.");
+                return;
+            }
+            string checkSql = "SELECT COUNT(1) FROM dbo.ChiTietPhieuNhap WHERE MaPhieuNhap = @MaPhieuNhap AND MaThuoc = @MaThuoc AND SoLo = @SoLo";
+
+            // Kiểm tra nếu giá trị đã tồn tại
+            using (SqlCommand checkCmd = new SqlCommand(checkSql, conn))
+            {
+                checkCmd.Parameters.AddWithValue("@MaPhieuNhap", txtmaPN.Text);
+                checkCmd.Parameters.AddWithValue("@MaThuoc", txtMaThuoc.Text);
+                checkCmd.Parameters.AddWithValue("@SoLo", txtSoLo.Text);
+
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+
+                int exists = (int)checkCmd.ExecuteScalar();
+
+                // Nếu bản ghi đã tồn tại, hiển thị thông báo lỗi và dừng lệnh chèn
+                if (exists > 0)
+                {
+                    MessageBox.Show("Lỗi: Giá trị đã tồn tại trong Chi tiết phiếu nhập!", "Lỗi trùng dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+
+            string sql = "INSERT INTO dbo.ChiTietPhieuNhap(MaPhieuNhap, MaThuoc, SoLo, NgaySanXuat, NgayHetHan, DonViNhap, slDonViNhap, GiaNhap) " +
+                         "VALUES (@MaPhieuNhap, @MaThuoc, @SoLo, @NgaySanXuat, @NgayHetHan, @DonViNhap, @slDonViNhap, @GiaNhap)";
+
+            if (conn.State != ConnectionState.Open)
+            {
+                conn.Open();
+            }
+
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                // Gán giá trị cho các tham số
+                cmd.Parameters.AddWithValue("@MaPhieuNhap", txtmaPN.Text);
+                cmd.Parameters.AddWithValue("@MaThuoc", txtMaThuoc.Text);
+                cmd.Parameters.AddWithValue("@SoLo", txtSoLo.Text);
+
+                // Sử dụng SelectedValue của ComboBox comDV
+                cmd.Parameters.AddWithValue("@DonViNhap", comDV.SelectedValue?.ToString());
+
+                // Lấy giá trị ngày từ DateTimePicker và chuyển đổi sang định dạng yyyy-MM-dd
+                cmd.Parameters.AddWithValue("@NgaySanXuat", dtNSX.Value.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("@NgayHetHan", dtNHH.Value.ToString("yyyy-MM-dd"));
+
+                // Chuyển đổi slDonViNhap sang kiểu Int
+                int slDonViNhap = int.TryParse(txtslDonViNhap.Text, out slDonViNhap) ? slDonViNhap : 0;
+                cmd.Parameters.AddWithValue("@slDonViNhap", slDonViNhap);
+
+                // Chuyển đổi GiaNhap sang kiểu decimal
+                decimal giaNhap = decimal.TryParse(txtGiaNhap.Text, out giaNhap) ? giaNhap : 0;
+                cmd.Parameters.AddWithValue("@GiaNhap", giaNhap);
+
+                // Thực thi câu lệnh và kiểm tra số dòng được chèn
+                int rowsAffected = cmd.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Thêm chi tiết hóa đơn thành công vào cơ sở dữ liệu!");
+                }
+                else
+                {
+                    MessageBox.Show("Không thể thêm chi tiết hóa đơn vào cơ sở dữ liệu.");
+                }
+            }
+
+            // Đóng kết nối sau khi hoàn tất
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+            }
+        }
+    
+
+        
+
+        
+
         // Cờ để kiểm soát khi nào dòng hiện tại bị khóa
         private bool isLocked = false;
         private void button5_Click(object sender, EventArgs e)
         {
+            dtNSX.Visible = true;
+            dtNHH.Visible = true;
+            txtNgaySanXuat.Visible = false;
+            txtNgayHetHan.Visible = false;
             txtMaThuoc.Text = " ";
             txtSoLo.Text = " ";
-            txtNgaySanXuat.Text = " ";
-            txtNgayHetHan.Text = " ";
+           
             txtDonViNhap.Text = " ";
             txtslDonViNhap.Text = " ";
             txtGiaNhap.Text = " ";
             txtThanhTien.Text = " ";
+            txtMaThuoc.ReadOnly = false;
+            txtSoLo.ReadOnly = false;
+            txtNgaySanXuat.ReadOnly = false;
+            txtNgayHetHan.ReadOnly = false;
+            txtDonViNhap.ReadOnly = false;
+            txtslDonViNhap.ReadOnly = false;
+            txtGiaNhap.ReadOnly = false;
+           
             // Lưu giá trị hiện tại của các TextBox để giữ nguyên khi khóa dòng
             maPN = txtmaPN.Text;
             ngayNhap = txtngaynhap.Text;
@@ -652,6 +705,14 @@ namespace QL_Pharmacy
 
         public void NapCTPN()
         {
+            txtMaThuoc.ReadOnly = true;
+            txtSoLo.ReadOnly = true;
+            txtNgaySanXuat.ReadOnly = true;
+            txtNgayHetHan.ReadOnly = true;
+            txtDonViNhap.ReadOnly = true;
+            txtslDonViNhap.ReadOnly = true;
+            txtGiaNhap.ReadOnly = true;
+            txtThanhTien.ReadOnly = true;
             int i = grdCTNhap.CurrentRow.Index;
             txtMaThuoc.Text = grdCTNhap.Rows[i].Cells["MaThuoc"].Value?.ToString();
             txtSoLo.Text = grdCTNhap.Rows[i].Cells["SoLo"].Value?.ToString();

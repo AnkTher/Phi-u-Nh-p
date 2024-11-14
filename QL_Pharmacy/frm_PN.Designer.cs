@@ -68,6 +68,7 @@
             this.btnreturn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.comDV = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txtMaThuoc = new System.Windows.Forms.TextBox();
             this.btndelCT = new System.Windows.Forms.Button();
@@ -118,7 +119,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comDV = new System.Windows.Forms.ComboBox();
+            this.dtNSX = new System.Windows.Forms.DateTimePicker();
+            this.dtNHH = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.grdData)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -150,7 +152,6 @@
             this.grdData.TabIndex = 0;
             this.grdData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdData_CellClick);
             this.grdData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdData_CellClick);
-           
             // 
             // MaPhieuNhap
             // 
@@ -331,7 +332,6 @@
             this.groupBox1.Size = new System.Drawing.Size(925, 179);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
-           
             // 
             // comncc
             // 
@@ -344,7 +344,6 @@
             this.comncc.Size = new System.Drawing.Size(337, 35);
             this.comncc.TabIndex = 22;
             this.comncc.Visible = false;
-            
             // 
             // txtngaynhap
             // 
@@ -353,7 +352,6 @@
             this.txtngaynhap.Name = "txtngaynhap";
             this.txtngaynhap.Size = new System.Drawing.Size(339, 34);
             this.txtngaynhap.TabIndex = 21;
-            
             // 
             // label4
             // 
@@ -374,7 +372,6 @@
             this.label5.Size = new System.Drawing.Size(95, 27);
             this.label5.TabIndex = 17;
             this.label5.Text = "Ngày nhập";
-            
             // 
             // label6
             // 
@@ -428,7 +425,6 @@
             this.label8.Size = new System.Drawing.Size(159, 20);
             this.label8.TabIndex = 20;
             this.label8.Text = "Tổng tiền Phiếu nhập";
-           
             // 
             // txttongtien
             // 
@@ -436,7 +432,6 @@
             this.txttongtien.Name = "txttongtien";
             this.txttongtien.Size = new System.Drawing.Size(310, 26);
             this.txttongtien.TabIndex = 6;
-          
             // 
             // label2
             // 
@@ -470,7 +465,6 @@
             this.groupBox2.Size = new System.Drawing.Size(913, 60);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
-          
             // 
             // comGT
             // 
@@ -479,7 +473,6 @@
             this.comGT.Name = "comGT";
             this.comGT.Size = new System.Drawing.Size(257, 35);
             this.comGT.TabIndex = 17;
-         
             // 
             // comTentruong
             // 
@@ -506,7 +499,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1040, 1079);
             this.panel6.TabIndex = 49;
-          
             // 
             // panCTPN
             // 
@@ -516,7 +508,6 @@
             this.panCTPN.Name = "panCTPN";
             this.panCTPN.Size = new System.Drawing.Size(1006, 332);
             this.panCTPN.TabIndex = 49;
-          
             // 
             // panel5
             // 
@@ -548,6 +539,8 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.dtNHH);
+            this.panel3.Controls.Add(this.dtNSX);
             this.panel3.Controls.Add(this.comDV);
             this.panel3.Controls.Add(this.label16);
             this.panel3.Controls.Add(this.txtMaThuoc);
@@ -573,6 +566,16 @@
             this.panel3.Size = new System.Drawing.Size(974, 272);
             this.panel3.TabIndex = 45;
             // 
+            // comDV
+            // 
+            this.comDV.FormattingEnabled = true;
+            this.comDV.Location = new System.Drawing.Point(6, 131);
+            this.comDV.Name = "comDV";
+            this.comDV.Size = new System.Drawing.Size(160, 35);
+            this.comDV.TabIndex = 48;
+            this.comDV.Visible = false;
+            this.comDV.DropDown += new System.EventHandler(this.comDV_DropDown);
+            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -581,7 +584,6 @@
             this.label16.Size = new System.Drawing.Size(51, 27);
             this.label16.TabIndex = 47;
             this.label16.Text = "Số lô";
-        
             // 
             // txtMaThuoc
             // 
@@ -616,6 +618,7 @@
             this.btnudateCT.TabIndex = 35;
             this.btnudateCT.Text = "Cập nhật";
             this.btnudateCT.UseVisualStyleBackColor = true;
+            this.btnudateCT.Click += new System.EventHandler(this.btnudateCT_Click);
             // 
             // txtThanhTien
             // 
@@ -660,6 +663,7 @@
             this.txtNgayHetHan.Name = "txtNgayHetHan";
             this.txtNgayHetHan.Size = new System.Drawing.Size(251, 34);
             this.txtNgayHetHan.TabIndex = 23;
+           
             // 
             // txtNgaySanXuat
             // 
@@ -667,6 +671,7 @@
             this.txtNgaySanXuat.Name = "txtNgaySanXuat";
             this.txtNgaySanXuat.Size = new System.Drawing.Size(265, 34);
             this.txtNgaySanXuat.TabIndex = 22;
+        
             // 
             // txtSoLo
             // 
@@ -756,7 +761,6 @@
             this.groupBox3.TabIndex = 43;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tìm thuốc";
-            
             // 
             // comGTT
             // 
@@ -939,7 +943,6 @@
             this.grdCTNhap.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCTNhap_CellClick);
             this.grdCTNhap.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCTNhap_CellContentClick);
             this.grdCTNhap.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grdCTNhap_CellMouseClick);
-            
             // 
             // MaThuoc
             // 
@@ -1021,7 +1024,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(925, 97);
             this.panel1.TabIndex = 50;
-          
             // 
             // label18
             // 
@@ -1033,7 +1035,6 @@
             this.label18.Size = new System.Drawing.Size(153, 30);
             this.label18.TabIndex = 17;
             this.label18.Text = "HÓA ĐƠN NHẬP";
-           
             // 
             // label1
             // 
@@ -1046,16 +1047,25 @@
             this.label1.TabIndex = 51;
             this.label1.Text = "CHI TIẾT PHIẾU NHẬP";
             // 
-            // comDV
+            // dtNSX
             // 
-            this.comDV.FormattingEnabled = true;
-            this.comDV.Location = new System.Drawing.Point(6, 131);
-            this.comDV.Name = "comDV";
-            this.comDV.Size = new System.Drawing.Size(160, 35);
-            this.comDV.TabIndex = 48;
-            this.comDV.Visible = false;
-            this.comDV.DropDown += new System.EventHandler(this.comDV_DropDown);
-            
+            this.dtNSX.CustomFormat = "dd/MM/yyyy";
+            this.dtNSX.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtNSX.Location = new System.Drawing.Point(417, 38);
+            this.dtNSX.Name = "dtNSX";
+            this.dtNSX.Size = new System.Drawing.Size(265, 34);
+            this.dtNSX.TabIndex = 49;
+            this.dtNSX.Visible = false;
+            // 
+            // dtNHH
+            // 
+            this.dtNHH.CustomFormat = "dd/MM/yyyy";
+            this.dtNHH.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtNHH.Location = new System.Drawing.Point(709, 38);
+            this.dtNHH.Name = "dtNHH";
+            this.dtNHH.Size = new System.Drawing.Size(265, 34);
+            this.dtNHH.TabIndex = 50;
+            this.dtNHH.Visible = false;
             // 
             // frm_PN
             // 
@@ -1196,5 +1206,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dvcoso;
         private System.Windows.Forms.DataGridViewTextBoxColumn hangsx;
         private System.Windows.Forms.ComboBox comDV;
+        private System.Windows.Forms.DateTimePicker dtNSX;
+        private System.Windows.Forms.DateTimePicker dtNHH;
     }
 }
