@@ -480,8 +480,6 @@ namespace QL_Pharmacy
 
         private void grdCTNhap_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            pnThemCT.Visible = true;
-            pnThemCT.Enabled = true;
             NapCTPN();
         }
 
@@ -536,8 +534,6 @@ namespace QL_Pharmacy
         private void grdCTNhap_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             NapCTPN();
-            pnThemCT.Visible = true;
-            pnThemCT.Enabled = true;
         }
 
 
@@ -821,6 +817,8 @@ namespace QL_Pharmacy
         {
             flag = "edit";
             SaveInitialState();
+            pnThemCT.Visible = true;
+            pnThemCT.Enabled = true;
             if (grdCTNhap.CurrentRow != null)
             {
                 grdData.Enabled = false;
@@ -984,9 +982,7 @@ namespace QL_Pharmacy
         private void btnreturn_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Mọi thay đổi bạn vừa tạo sẽ không được lưu, bạn có chắc chắn quay lại?", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
-            RestoreInitialState();
-            // Thông báo cho người dùng
-            MessageBox.Show("Đã quay lại trạng thái ban đầu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            RestoreInitialState();   
         }
 
 

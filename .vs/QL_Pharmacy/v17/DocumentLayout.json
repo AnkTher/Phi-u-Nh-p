@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\New folder (2)\\QL_Pharmacy1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|d:\\new folder (2)\\ql_pharmacy1\\ql_pharmacy\\frm_pn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|solutionrelative:ql_pharmacy\\frm_pn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|D:\\New folder (2)\\QL_Pharmacy1\\ql_pharmacy\\frm_pn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|solutionrelative:ql_pharmacy\\frm_pn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|d:\\new folder (2)\\ql_pharmacy1\\ql_pharmacy\\frm_pn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|solutionrelative:ql_pharmacy\\frm_pn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B56B071A-5665-4776-AED8-4797F05EBE15}|QL_Pharmacy\\QL_Pharmacy.csproj|D:\\New folder (2)\\QL_Pharmacy1\\ql_pharmacy\\frm_pn.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -50,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
@@ -68,20 +68,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "frm_PN.cs",
               "DocumentMoniker": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\frm_PN.cs",
               "RelativeDocumentMoniker": "QL_Pharmacy\\frm_PN.cs",
               "ToolTip": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\frm_PN.cs*",
               "RelativeToolTip": "QL_Pharmacy\\frm_PN.cs*",
-              "ViewState": "AgIAAAYCAAAAAAAAAAAuwBsCAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAqwCQAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-10T18:06:53.763Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "frm_PN.cs [Design]",
               "DocumentMoniker": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\frm_PN.cs",
               "RelativeDocumentMoniker": "QL_Pharmacy\\frm_PN.cs",
@@ -97,8 +97,8 @@
               "Title": "frm_PN.Designer.cs",
               "DocumentMoniker": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\frm_PN.Designer.cs",
               "RelativeDocumentMoniker": "QL_Pharmacy\\frm_PN.Designer.cs",
-              "ToolTip": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\frm_PN.Designer.cs",
-              "RelativeToolTip": "QL_Pharmacy\\frm_PN.Designer.cs",
+              "ToolTip": "D:\\New folder (2)\\QL_Pharmacy1\\QL_Pharmacy\\frm_PN.Designer.cs*",
+              "RelativeToolTip": "QL_Pharmacy\\frm_PN.Designer.cs*",
               "ViewState": "AgIAAMMBAAAAAAAAAAAhwNYBAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-10T12:45:10.832Z",
