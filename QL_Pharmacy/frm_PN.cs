@@ -152,6 +152,7 @@ namespace QL_Pharmacy
 
         private void btnadd_Click(object sender, EventArgs e)
         {
+            flag = "thêm";
             txtmaPN.Text = " ";
             txtngaynhap.Text = " ";
             txttenncc.Text = " ";
@@ -211,9 +212,18 @@ namespace QL_Pharmacy
         private void btnupdate_Click(object sender, EventArgs e)
         {
             sql = "UPDATE NhapThuoc SET thukhonhap = N'" + txttenthukhonhap.Text + "' ,tenncc= N'" + comncc.SelectedValue.ToString() + "' WHERE MaPhieuNhap = '" + txtmaPN.Text + "'";
-            cmd = new SqlCommand(sql, conn);
+            using (SqlConnection conn = new SqlConnection(constr))
+            {
+                try
+                {
+                    conn.Open(); // Mở kết nối
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
             cmd.ExecuteNonQuery();
-            MessageBox.Show("Đã thêm mới thành công!");
+                        if (flag == "sửa")
+                        { MessageBox.Show("Đã cập nhật thành công!"); }
+                        if (flag == "thêm")
+                        { MessageBox.Show("Đã thêm mới thành công!"); }
             Naplai();
             txttenncc.ReadOnly = true;
             txttenthukhonhap.ReadOnly = true;
@@ -221,6 +231,14 @@ namespace QL_Pharmacy
             //ẩn combo box hiện text box
             comncc.Visible = false;
             txttenncc.Visible = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Đã xảy ra lỗi khi thay đổi: " + ex.Message);
+                }
+            }
+          
         }
         private void frm_PN_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -293,6 +311,7 @@ namespace QL_Pharmacy
 
         private void btnedit_Click(object sender, EventArgs e)
         {
+            flag = "sửa";
             MessageBox.Show("Hãy thực hiện sửa nội dung dữ liệu trên ô lưới, kết thúc bằng việc cập nhật.");
 
             if (grdData.CurrentRow != null) // Kiểm tra nếu có bản ghi đang được chọn
@@ -442,7 +461,7 @@ namespace QL_Pharmacy
             }
 
             // Lấy MaPhieuNhap từ dòng được chọn trong grdData
-            string maPhieuNhap = grdData.SelectedRows[0].Cells["MaPhieuNhap"].Value.ToString();
+            string maPhieuNhap = grdData.SelectedRows[0].Cells["MaPhieuNhap"].Value?.ToString();
 
             // Chuỗi kết nối đến cơ sở dữ liệu
             string constr = "Data Source=DESKTOP-7NII7JG\\MSQL;Initial Catalog=\"QL NHA THUOC\";Integrated Security=True;Encrypt=False";
@@ -547,8 +566,9 @@ namespace QL_Pharmacy
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin.");
                 return;
             }
-            // Kiểm tra sự trùng lặp của mã thuốc, số lô và ngày hết hạn
-            string checkDateSql = "SELECT COUNT(1) FROM dbo.ChiTietPhieuNhap WHERE MaThuoc = @MaThuoc AND SoLo = @SoLo AND NgayHetHan <> @NgayHetHan";
+            
+                // Kiểm tra sự trùng lặp của mã thuốc, số lô và ngày hết hạn
+                string checkDateSql = "SELECT COUNT(1) FROM dbo.ChiTietPhieuNhap WHERE MaThuoc = @MaThuoc AND SoLo = @SoLo AND NgayHetHan <> @NgayHetHan";
 
             using (SqlCommand checkDateCmd = new SqlCommand(checkDateSql, conn))
             {
@@ -569,8 +589,10 @@ namespace QL_Pharmacy
                     return;
                 }
             }
-            // Kiểm tra nếu giá trị đã tồn tại
-            string checkSql = "SELECT COUNT(1) FROM dbo.ChiTietPhieuNhap WHERE MaPhieuNhap = @MaPhieuNhap AND MaThuoc = @MaThuoc AND SoLo = @SoLo";
+            if (flag == "add")
+            {
+                // Kiểm tra nếu giá trị đã tồn tại
+                string checkSql = "SELECT COUNT(1) FROM dbo.ChiTietPhieuNhap WHERE MaPhieuNhap = @MaPhieuNhap AND MaThuoc = @MaThuoc AND SoLo = @SoLo";
 
             using (SqlCommand checkCmd = new SqlCommand(checkSql, conn))
             {
@@ -592,49 +614,82 @@ namespace QL_Pharmacy
                     return;
                 }
             }
+            
 
-
-            string sql = "INSERT INTO dbo.ChiTietPhieuNhap(MaPhieuNhap, MaThuoc, SoLo, NgaySanXuat, NgayHetHan, DonViNhap, slDonViNhap, GiaNhap) " +
+                string sql = "INSERT INTO dbo.ChiTietPhieuNhap(MaPhieuNhap, MaThuoc, SoLo, NgaySanXuat, NgayHetHan, DonViNhap, slDonViNhap, GiaNhap) " +
                          "VALUES (@MaPhieuNhap, @MaThuoc, @SoLo, @NgaySanXuat, @NgayHetHan, @DonViNhap, @slDonViNhap, @GiaNhap)";
 
-            if (conn.State != ConnectionState.Open)
-            {
-                conn.Open();
-            }
-
-            using (SqlCommand cmd = new SqlCommand(sql, conn))
-            {
-                // Gán giá trị cho các tham số
-                cmd.Parameters.AddWithValue("@MaPhieuNhap", txtmaPN.Text);
-                cmd.Parameters.AddWithValue("@MaThuoc", txtMaThuoc.Text);
-                cmd.Parameters.AddWithValue("@SoLo", txtSoLo.Text);
-
-                // Sử dụng SelectedValue của ComboBox comDV
-                cmd.Parameters.AddWithValue("@DonViNhap", comDV.SelectedValue?.ToString());
-
-                // Lấy giá trị ngày từ DateTimePicker và chuyển đổi sang định dạng yyyy-MM-dd
-                cmd.Parameters.AddWithValue("@NgaySanXuat", dtNSX.Value.ToString("yyyy-MM-dd"));
-                cmd.Parameters.AddWithValue("@NgayHetHan", dtNHH.Value.ToString("yyyy-MM-dd"));
-
-                // Chuyển đổi slDonViNhap sang kiểu Int
-                int slDonViNhap = int.TryParse(txtslDonViNhap.Text, out slDonViNhap) ? slDonViNhap : 0;
-                cmd.Parameters.AddWithValue("@slDonViNhap", slDonViNhap);
-
-                // Chuyển đổi GiaNhap sang kiểu decimal
-                decimal giaNhap = decimal.TryParse(txtGiaNhap.Text, out giaNhap) ? giaNhap : 0;
-                cmd.Parameters.AddWithValue("@GiaNhap", giaNhap);
-
-                // Thực thi câu lệnh và kiểm tra số dòng được chèn
-                int rowsAffected = cmd.ExecuteNonQuery();
-                if (rowsAffected > 0)
+                if (conn.State != ConnectionState.Open)
                 {
-                    MessageBox.Show("Thêm chi tiết hóa đơn thành công vào cơ sở dữ liệu!");
-                    Naplai();
-                    NapLaiCT();
+                    conn.Open();
                 }
-                else
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    MessageBox.Show("Không thể thêm chi tiết hóa đơn vào cơ sở dữ liệu.");
+                    // Gán giá trị cho các tham số
+                    cmd.Parameters.AddWithValue("@MaPhieuNhap", txtmaPN.Text);
+                    cmd.Parameters.AddWithValue("@MaThuoc", txtMaThuoc.Text);
+                    cmd.Parameters.AddWithValue("@SoLo", txtSoLo.Text);
+
+                    // Sử dụng SelectedValue của ComboBox comDV
+                    cmd.Parameters.AddWithValue("@DonViNhap", comDV.SelectedValue?.ToString());
+
+                    // Lấy giá trị ngày từ DateTimePicker và chuyển đổi sang định dạng yyyy-MM-dd
+                    cmd.Parameters.AddWithValue("@NgaySanXuat", dtNSX.Value.ToString("yyyy-MM-dd"));
+                    cmd.Parameters.AddWithValue("@NgayHetHan", dtNHH.Value.ToString("yyyy-MM-dd"));
+
+                    // Chuyển đổi slDonViNhap sang kiểu Int
+                    int slDonViNhap = int.TryParse(txtslDonViNhap.Text, out slDonViNhap) ? slDonViNhap : 0;
+                    cmd.Parameters.AddWithValue("@slDonViNhap", slDonViNhap);
+
+                    // Chuyển đổi GiaNhap sang kiểu decimal
+                    decimal giaNhap = decimal.TryParse(txtGiaNhap.Text, out giaNhap) ? giaNhap : 0;
+                    cmd.Parameters.AddWithValue("@GiaNhap", giaNhap);
+
+                    // Thực thi câu lệnh và kiểm tra số dòng được chèn
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Thêm chi tiết hóa đơn thành công vào cơ sở dữ liệu!");
+                        Naplai();
+                        NapLaiCT();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể thêm chi tiết hóa đơn vào cơ sở dữ liệu.");
+                    }
+                }
+            }
+            else if (flag == "edit")
+            {
+                // Thực hiện lệnh UPDATE
+                string updateSql = "UPDATE dbo.ChiTietPhieuNhap SET NgaySanXuat = @NgaySanXuat, NgayHetHan = @NgayHetHan, DonViNhap = @DonViNhap, slDonViNhap = @slDonViNhap, GiaNhap = @GiaNhap " +
+                                   "WHERE MaPhieuNhap = @MaPhieuNhap AND MaThuoc = @MaThuoc AND SoLo = @SoLo";
+
+                using (SqlCommand cmd = new SqlCommand(updateSql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@MaPhieuNhap", txtmaPN.Text);
+                    cmd.Parameters.AddWithValue("@MaThuoc", txtMaThuoc.Text);
+                    cmd.Parameters.AddWithValue("@SoLo", txtSoLo.Text);
+                    cmd.Parameters.AddWithValue("@DonViNhap", comDV.SelectedValue?.ToString());
+                    cmd.Parameters.AddWithValue("@NgaySanXuat", dtNSX.Value.ToString("yyyy-MM-dd"));
+                    cmd.Parameters.AddWithValue("@NgayHetHan", dtNHH.Value.ToString("yyyy-MM-dd"));
+                    cmd.Parameters.AddWithValue("@slDonViNhap", int.TryParse(txtslDonViNhap.Text, out int slDonViNhap) ? slDonViNhap : 0);
+                    cmd.Parameters.AddWithValue("@GiaNhap", decimal.TryParse(txtGiaNhap.Text, out decimal giaNhap) ? giaNhap : 0);
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Cập nhật chi tiết phiếu nhập thành công!");
+                        Naplai();
+                        NapLaiCT();
+                        grdData.Enabled = true;
+                        grdCTNhap.Enabled = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể cập nhật chi tiết phiếu nhập.");
+                    }
                 }
             }
 
@@ -715,12 +770,129 @@ namespace QL_Pharmacy
                 txtThanhTien.Clear(); // Xóa ô txtThanhTien nếu có ô trống
             }
         }
+        private string flag = "";
+
+        private void btneditCT_Click(object sender, EventArgs e)
+        {
+            flag = "edit";
+            if (grdCTNhap.CurrentRow != null)
+            {
+                grdData.Enabled = false;
+                grdCTNhap.Enabled = false;
+                grdT.Enabled = false;
+                dtNSX.Visible = true;
+                dtNHH.Visible = true;
+                txtNgaySanXuat.Visible = false;
+                txtNgayHetHan.Visible = false;
+                txtMaThuoc.ReadOnly = true;
+                txtSoLo.ReadOnly = true;
+                txtNgaySanXuat.ReadOnly = false;
+                txtNgayHetHan.ReadOnly = false;
+
+                txtslDonViNhap.ReadOnly = false;
+                txtGiaNhap.ReadOnly = false;
+                // Lấy thông tin từ các bảng ghi đang chọn
+                txtThanhTien.ReadOnly = true;
+                int i = grdCTNhap.CurrentRow.Index;
+                txtMaThuoc.Text = grdCTNhap.Rows[i].Cells["MaThuoc"].Value?.ToString();
+                txtSoLo.Text = grdCTNhap.Rows[i].Cells["SoLo"].Value?.ToString();
+                txtNgaySanXuat.Text = grdCTNhap.Rows[i].Cells["NgaySanXuat"].Value?.ToString();
+                txtNgayHetHan.Text = grdCTNhap.Rows[i].Cells["NgayHetHan"].Value?.ToString();
+                txtDonViNhap.Text = grdCTNhap.Rows[i].Cells["DonViNhap"].Value?.ToString();
+                txtslDonViNhap.Text = grdCTNhap.Rows[i].Cells["slDonViNhap"].Value?.ToString();
+                txtGiaNhap.Text = grdCTNhap.Rows[i].Cells["GiaNhap"].Value?.ToString();
+                txtThanhTien.Text = grdCTNhap.Rows[i].Cells["ThanhTien"].Value?.ToString();
+                // Ẩn TextBox và hiển thị ComboBox
+                txtDonViNhap.Visible = false;
+                comDV.Visible = true;
+                // Gán dữ liệu từ DataTable vào ComboBox comDV
+                DataTable dtcomDV = new DataTable();
+                string sql = $"SELECT ql.dvcoso AS DonVi FROM dbo.QL_Thuoc ql WHERE ql.MaThuoc = '{txtMaThuoc.Text}' UNION SELECT qd.DonViQuyDoi AS DonVi FROM dbo.QuyDoiDonVi qd WHERE qd.MaThuoc = '{txtMaThuoc.Text}'";
+                daDV = new SqlDataAdapter(sql, conn);
+                dtcomDV.Clear();
+                daDV.Fill(dtcomDV);
+
+                // Kiểm tra nếu có dữ liệu
+                if (dtcomDV.Rows.Count > 0)
+                {
+                    // Gán dữ liệu vào ComboBox
+                    comDV.DataSource = dtcomDV;
+                    comDV.DisplayMember = "DonVi";
+                    comDV.ValueMember = "DonVi";
+                }
+                // Gán giá trị từ TextBox cho ComboBox
+                {
+                    comDV.SelectedValue = txtDonViNhap.Text;
+                }
+                // Lưu giá trị hiện tại của các TextBox để giữ nguyên khi khóa dòng
+                maPN = txtmaPN.Text;
+                ngayNhap = txtngaynhap.Text;
+                tenThuKhoNhap = txttenthukhonhap.Text;
+                tenNCC = txttenncc.Text;
+                tongTien = txttongtien.Text;
+                // Bước 2: Đặt chế độ ReadOnly cho GridView phiếu nhập
+                txtmaPN.ReadOnly = true;
+                txtngaynhap.ReadOnly = true;
+                txttenthukhonhap.ReadOnly = true;
+                txttenncc.ReadOnly = true;
+                txttongtien.ReadOnly = true;
+                grdData.ReadOnly = true;
+                maT = true;
+                // Ẩn TextBox và hiển thị ComboBox
+                txtDonViNhap.Visible = false;
+                comDV.Visible = true;
+                // Gán giá trị từ TextBox cho ComboBox
+                {
+                    comDV.SelectedValue = txtDonViNhap.Text;
+                }
+                // Cấu hình định dạng hiển thị của DateTimePicker
+                dtNSX.Format = DateTimePickerFormat.Custom;
+                dtNSX.CustomFormat = "dd-MM-yyyy";
+                dtNHH.Format = DateTimePickerFormat.Custom;
+                dtNHH.CustomFormat = "dd-MM-yyyy";
+
+                // Gán giá trị từ TextBox cho DateTimePicker
+                DateTime ngaySanXuat;
+                DateTime ngayHetHan;
+
+                // Thử chuyển đổi giá trị từ TextBox và kiểm tra xem có phải ngày hợp lệ không
+                if (DateTime.TryParse(txtNgaySanXuat.Text, out ngaySanXuat))
+                {
+                    dtNSX.Value = ngaySanXuat;
+                }
+                else
+                {
+                    MessageBox.Show("Giá trị Ngày Sản Xuất không hợp lệ.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                if (DateTime.TryParse(txtNgayHetHan.Text, out ngayHetHan))
+                {
+                    dtNHH.Value = ngayHetHan;
+                }
+                else
+                {
+                    MessageBox.Show("Giá trị Ngày Hết Hạn không hợp lệ.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                {
+                    MessageBox.Show("Vui lòng chọn một bảng ghi để chỉnh sửa.");
+                }
+            }
+            // Kiểm tra kết nối
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+        }
 
 
         // Cờ để kiểm soát khi nào dòng hiện tại bị khóa
         private bool isLocked = false;
         private void button5_Click(object sender, EventArgs e)
         {
+            flag = "add";
             dtNSX.Visible = true;
             dtNHH.Visible = true;
             txtNgaySanXuat.Visible = false;

@@ -630,6 +630,7 @@
             this.btneditCT.TabIndex = 42;
             this.btneditCT.Text = "Sửa chi tiết";
             this.btneditCT.UseVisualStyleBackColor = true;
+            this.btneditCT.Click += new System.EventHandler(this.btneditCT_Click);
             // 
             // btnudateCT
             // 
