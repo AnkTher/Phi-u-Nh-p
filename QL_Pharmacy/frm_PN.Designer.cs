@@ -92,13 +92,9 @@
             this.label10 = new System.Windows.Forms.Label();
             this.panT = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.comGTT = new System.Windows.Forms.ComboBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.comT = new System.Windows.Forms.ComboBox();
             this.btnrefreshT = new System.Windows.Forms.Button();
-            this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.btnfilterT = new System.Windows.Forms.Button();
             this.btnnamesearch = new System.Windows.Forms.Button();
             this.txtTenthuocsearch = new System.Windows.Forms.TextBox();
             this.grdT = new System.Windows.Forms.DataGridView();
@@ -148,7 +144,7 @@
             this.grdData.Name = "grdData";
             this.grdData.RowHeadersWidth = 62;
             this.grdData.RowTemplate.Height = 28;
-            this.grdData.Size = new System.Drawing.Size(925, 296);
+            this.grdData.Size = new System.Drawing.Size(1008, 296);
             this.grdData.TabIndex = 0;
             this.grdData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdData_CellClick);
             this.grdData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdData_CellClick);
@@ -200,7 +196,7 @@
             // 
             // btnexit
             // 
-            this.btnexit.Location = new System.Drawing.Point(860, 632);
+            this.btnexit.Location = new System.Drawing.Point(945, 632);
             this.btnexit.Name = "btnexit";
             this.btnexit.Size = new System.Drawing.Size(110, 42);
             this.btnexit.TabIndex = 1;
@@ -211,7 +207,7 @@
             // btnupdate
             // 
             this.btnupdate.Font = new System.Drawing.Font("#9Slide03 Cabin", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnupdate.Location = new System.Drawing.Point(559, 130);
+            this.btnupdate.Location = new System.Drawing.Point(623, 130);
             this.btnupdate.Name = "btnupdate";
             this.btnupdate.Size = new System.Drawing.Size(119, 39);
             this.btnupdate.TabIndex = 2;
@@ -222,7 +218,7 @@
             // btndel
             // 
             this.btndel.Font = new System.Drawing.Font("#9Slide03 Cabin", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btndel.Location = new System.Drawing.Point(434, 130);
+            this.btndel.Location = new System.Drawing.Point(498, 130);
             this.btndel.Name = "btndel";
             this.btndel.Size = new System.Drawing.Size(119, 39);
             this.btndel.TabIndex = 3;
@@ -233,7 +229,7 @@
             // btnedit
             // 
             this.btnedit.Font = new System.Drawing.Font("#9Slide03 Cabin", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnedit.Location = new System.Drawing.Point(309, 130);
+            this.btnedit.Location = new System.Drawing.Point(373, 130);
             this.btnedit.Name = "btnedit";
             this.btnedit.Size = new System.Drawing.Size(119, 39);
             this.btnedit.TabIndex = 4;
@@ -244,7 +240,7 @@
             // btnadd
             // 
             this.btnadd.Font = new System.Drawing.Font("#9Slide03 Cabin", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnadd.Location = new System.Drawing.Point(184, 130);
+            this.btnadd.Location = new System.Drawing.Point(248, 130);
             this.btnadd.Name = "btnadd";
             this.btnadd.Size = new System.Drawing.Size(119, 39);
             this.btnadd.TabIndex = 5;
@@ -254,9 +250,9 @@
             // 
             // btnrefresh
             // 
-            this.btnrefresh.Location = new System.Drawing.Point(774, 14);
+            this.btnrefresh.Location = new System.Drawing.Point(890, 14);
             this.btnrefresh.Name = "btnrefresh";
-            this.btnrefresh.Size = new System.Drawing.Size(119, 38);
+            this.btnrefresh.Size = new System.Drawing.Size(107, 38);
             this.btnrefresh.TabIndex = 6;
             this.btnrefresh.Text = "Nạp lại";
             this.btnrefresh.UseVisualStyleBackColor = true;
@@ -264,9 +260,9 @@
             // 
             // btnfilter
             // 
-            this.btnfilter.Location = new System.Drawing.Point(643, 14);
+            this.btnfilter.Location = new System.Drawing.Point(745, 14);
             this.btnfilter.Name = "btnfilter";
-            this.btnfilter.Size = new System.Drawing.Size(104, 38);
+            this.btnfilter.Size = new System.Drawing.Size(123, 38);
             this.btnfilter.TabIndex = 7;
             this.btnfilter.Text = "Lọc dữ liệu";
             this.btnfilter.UseVisualStyleBackColor = true;
@@ -274,7 +270,7 @@
             // 
             // btnlast
             // 
-            this.btnlast.Location = new System.Drawing.Point(769, 631);
+            this.btnlast.Location = new System.Drawing.Point(854, 631);
             this.btnlast.Name = "btnlast";
             this.btnlast.Size = new System.Drawing.Size(85, 42);
             this.btnlast.TabIndex = 8;
@@ -284,7 +280,7 @@
             // 
             // btnnext
             // 
-            this.btnnext.Location = new System.Drawing.Point(678, 631);
+            this.btnnext.Location = new System.Drawing.Point(763, 631);
             this.btnnext.Name = "btnnext";
             this.btnnext.Size = new System.Drawing.Size(85, 42);
             this.btnnext.TabIndex = 9;
@@ -294,7 +290,7 @@
             // 
             // btnfirst
             // 
-            this.btnfirst.Location = new System.Drawing.Point(588, 631);
+            this.btnfirst.Location = new System.Drawing.Point(673, 631);
             this.btnfirst.Name = "btnfirst";
             this.btnfirst.Size = new System.Drawing.Size(85, 42);
             this.btnfirst.TabIndex = 10;
@@ -304,7 +300,7 @@
             // 
             // btnhead
             // 
-            this.btnhead.Location = new System.Drawing.Point(497, 631);
+            this.btnhead.Location = new System.Drawing.Point(582, 631);
             this.btnhead.Name = "btnhead";
             this.btnhead.Size = new System.Drawing.Size(85, 42);
             this.btnhead.TabIndex = 11;
@@ -329,7 +325,7 @@
             this.groupBox1.Controls.Add(this.btndel);
             this.groupBox1.Location = new System.Drawing.Point(45, 132);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(925, 179);
+            this.groupBox1.Size = new System.Drawing.Size(1008, 179);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             // 
@@ -339,18 +335,18 @@
             this.comncc.FormattingEnabled = true;
             this.comncc.Items.AddRange(new object[] {
             "tenncc"});
-            this.comncc.Location = new System.Drawing.Point(545, 77);
+            this.comncc.Location = new System.Drawing.Point(636, 77);
             this.comncc.Name = "comncc";
-            this.comncc.Size = new System.Drawing.Size(337, 35);
+            this.comncc.Size = new System.Drawing.Size(366, 35);
             this.comncc.TabIndex = 22;
             this.comncc.Visible = false;
             // 
             // txtngaynhap
             // 
             this.txtngaynhap.Font = new System.Drawing.Font("#9Slide03 Cabin", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtngaynhap.Location = new System.Drawing.Point(543, 21);
+            this.txtngaynhap.Location = new System.Drawing.Point(636, 21);
             this.txtngaynhap.Name = "txtngaynhap";
-            this.txtngaynhap.Size = new System.Drawing.Size(339, 34);
+            this.txtngaynhap.Size = new System.Drawing.Size(366, 34);
             this.txtngaynhap.TabIndex = 21;
             // 
             // label4
@@ -367,7 +363,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("#9Slide03 Cabin", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label5.Location = new System.Drawing.Point(429, 24);
+            this.label5.Location = new System.Drawing.Point(487, 24);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(95, 27);
             this.label5.TabIndex = 17;
@@ -387,7 +383,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("#9Slide03 Cabin", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label7.Location = new System.Drawing.Point(409, 81);
+            this.label7.Location = new System.Drawing.Point(487, 81);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(115, 27);
             this.label7.TabIndex = 19;
@@ -395,10 +391,10 @@
             // 
             // txttenncc
             // 
-            this.txttenncc.Location = new System.Drawing.Point(545, 79);
+            this.txttenncc.Location = new System.Drawing.Point(636, 79);
             this.txttenncc.Multiline = true;
             this.txttenncc.Name = "txttenncc";
-            this.txttenncc.Size = new System.Drawing.Size(339, 30);
+            this.txttenncc.Size = new System.Drawing.Size(366, 30);
             this.txttenncc.TabIndex = 5;
             // 
             // txttenthukhonhap
@@ -406,7 +402,7 @@
             this.txttenthukhonhap.Font = new System.Drawing.Font("#9Slide03 Cabin", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txttenthukhonhap.Location = new System.Drawing.Point(133, 82);
             this.txttenthukhonhap.Name = "txttenthukhonhap";
-            this.txttenthukhonhap.Size = new System.Drawing.Size(209, 34);
+            this.txttenthukhonhap.Size = new System.Drawing.Size(282, 34);
             this.txttenthukhonhap.TabIndex = 4;
             // 
             // txtmaPN
@@ -414,7 +410,7 @@
             this.txtmaPN.Font = new System.Drawing.Font("#9Slide03 Cabin", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtmaPN.Location = new System.Drawing.Point(133, 21);
             this.txtmaPN.Name = "txtmaPN";
-            this.txtmaPN.Size = new System.Drawing.Size(209, 34);
+            this.txtmaPN.Size = new System.Drawing.Size(282, 34);
             this.txtmaPN.TabIndex = 2;
             // 
             // label8
@@ -462,7 +458,7 @@
             this.groupBox2.Font = new System.Drawing.Font("#9Slide03 Cabin", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.groupBox2.Location = new System.Drawing.Point(6, 37);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(913, 60);
+            this.groupBox2.Size = new System.Drawing.Size(999, 60);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             // 
@@ -471,15 +467,15 @@
             this.comGT.FormattingEnabled = true;
             this.comGT.Location = new System.Drawing.Point(325, 17);
             this.comGT.Name = "comGT";
-            this.comGT.Size = new System.Drawing.Size(257, 35);
+            this.comGT.Size = new System.Drawing.Size(347, 35);
             this.comGT.TabIndex = 17;
             // 
             // comTentruong
             // 
             this.comTentruong.FormattingEnabled = true;
             this.comTentruong.Items.AddRange(new object[] {
-            "thukhonhap",
-            "tenncc"});
+            "Thủ kho nhập",
+            "Nhà cung cấp"});
             this.comTentruong.Location = new System.Drawing.Point(61, 17);
             this.comTentruong.Name = "comTentruong";
             this.comTentruong.Size = new System.Drawing.Size(159, 35);
@@ -495,7 +491,7 @@
             this.panel6.Controls.Add(this.panT);
             this.panel6.Controls.Add(this.label25);
             this.panel6.Font = new System.Drawing.Font("#9Slide03 Cabin", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.panel6.Location = new System.Drawing.Point(1022, 29);
+            this.panel6.Location = new System.Drawing.Point(1074, 29);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1040, 1079);
             this.panel6.TabIndex = 49;
@@ -769,13 +765,9 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.comGTT);
-            this.groupBox3.Controls.Add(this.label19);
             this.groupBox3.Controls.Add(this.comT);
             this.groupBox3.Controls.Add(this.btnrefreshT);
-            this.groupBox3.Controls.Add(this.label20);
             this.groupBox3.Controls.Add(this.label21);
-            this.groupBox3.Controls.Add(this.btnfilterT);
             this.groupBox3.Controls.Add(this.btnnamesearch);
             this.groupBox3.Controls.Add(this.txtTenthuocsearch);
             this.groupBox3.Location = new System.Drawing.Point(13, 1);
@@ -785,81 +777,52 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tìm thuốc";
             // 
-            // comGTT
-            // 
-            this.comGTT.FormattingEnabled = true;
-            this.comGTT.Location = new System.Drawing.Point(419, 23);
-            this.comGTT.Name = "comGTT";
-            this.comGTT.Size = new System.Drawing.Size(350, 35);
-            this.comGTT.TabIndex = 31;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(342, 28);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(57, 27);
-            this.label19.TabIndex = 5;
-            this.label19.Text = "Giá trị";
-            // 
             // comT
             // 
             this.comT.FormattingEnabled = true;
-            this.comT.Location = new System.Drawing.Point(110, 25);
+            this.comT.Items.AddRange(new object[] {
+            "Mã thuốc",
+            "Tên thuốc"});
+            this.comT.Location = new System.Drawing.Point(99, 55);
             this.comT.Name = "comT";
-            this.comT.Size = new System.Drawing.Size(188, 35);
+            this.comT.Size = new System.Drawing.Size(146, 35);
             this.comT.TabIndex = 30;
             // 
             // btnrefreshT
             // 
-            this.btnrefreshT.Location = new System.Drawing.Point(859, 81);
+            this.btnrefreshT.Location = new System.Drawing.Point(883, 49);
             this.btnrefreshT.Name = "btnrefreshT";
-            this.btnrefreshT.Size = new System.Drawing.Size(105, 44);
+            this.btnrefreshT.Size = new System.Drawing.Size(88, 44);
             this.btnrefreshT.TabIndex = 28;
             this.btnrefreshT.Text = "Nạp lại";
             this.btnrefreshT.UseVisualStyleBackColor = true;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(13, 91);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(157, 27);
-            this.label20.TabIndex = 6;
-            this.label20.Text = "Tìm theo tên thuốc";
+            this.btnrefreshT.Click += new System.EventHandler(this.btnrefreshT_Click);
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(12, 32);
+            this.label21.Location = new System.Drawing.Point(12, 58);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(81, 27);
             this.label21.TabIndex = 4;
             this.label21.Text = "Tìm theo";
             // 
-            // btnfilterT
-            // 
-            this.btnfilterT.Location = new System.Drawing.Point(859, 21);
-            this.btnfilterT.Name = "btnfilterT";
-            this.btnfilterT.Size = new System.Drawing.Size(105, 42);
-            this.btnfilterT.TabIndex = 27;
-            this.btnfilterT.Text = "Lọc dữ liệu";
-            this.btnfilterT.UseVisualStyleBackColor = true;
-            // 
             // btnnamesearch
             // 
-            this.btnnamesearch.Location = new System.Drawing.Point(696, 88);
+            this.btnnamesearch.Location = new System.Drawing.Point(783, 49);
             this.btnnamesearch.Name = "btnnamesearch";
-            this.btnnamesearch.Size = new System.Drawing.Size(75, 37);
+            this.btnnamesearch.Size = new System.Drawing.Size(89, 44);
             this.btnnamesearch.TabIndex = 29;
             this.btnnamesearch.Text = "Tìm";
             this.btnnamesearch.UseVisualStyleBackColor = true;
+            this.btnnamesearch.Click += new System.EventHandler(this.btnnamesearch_Click);
             // 
             // txtTenthuocsearch
             // 
-            this.txtTenthuocsearch.Location = new System.Drawing.Point(185, 88);
+            this.txtTenthuocsearch.Location = new System.Drawing.Point(284, 50);
+            this.txtTenthuocsearch.Multiline = true;
             this.txtTenthuocsearch.Name = "txtTenthuocsearch";
-            this.txtTenthuocsearch.Size = new System.Drawing.Size(490, 34);
+            this.txtTenthuocsearch.Size = new System.Drawing.Size(490, 44);
             this.txtTenthuocsearch.TabIndex = 18;
             // 
             // grdT
@@ -939,7 +902,7 @@
             // 
             this.btnaddCT.Location = new System.Drawing.Point(730, 1070);
             this.btnaddCT.Name = "btnaddCT";
-            this.btnaddCT.Size = new System.Drawing.Size(240, 38);
+            this.btnaddCT.Size = new System.Drawing.Size(323, 38);
             this.btnaddCT.TabIndex = 34;
             this.btnaddCT.Text = "Thêm vào Phiếu nhập";
             this.btnaddCT.UseVisualStyleBackColor = true;
@@ -961,7 +924,7 @@
             this.grdCTNhap.Name = "grdCTNhap";
             this.grdCTNhap.RowHeadersWidth = 62;
             this.grdCTNhap.RowTemplate.Height = 28;
-            this.grdCTNhap.Size = new System.Drawing.Size(925, 367);
+            this.grdCTNhap.Size = new System.Drawing.Size(1008, 367);
             this.grdCTNhap.TabIndex = 33;
             this.grdCTNhap.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCTNhap_CellClick);
             this.grdCTNhap.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCTNhap_CellContentClick);
@@ -1045,7 +1008,7 @@
             this.panel1.Font = new System.Drawing.Font("#9Slide03 Cabin", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.panel1.Location = new System.Drawing.Point(45, 29);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(925, 97);
+            this.panel1.Size = new System.Drawing.Size(1008, 97);
             this.panel1.TabIndex = 50;
             // 
             // label18
@@ -1176,13 +1139,9 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ComboBox comGTT;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ComboBox comT;
         private System.Windows.Forms.Button btnrefreshT;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Button btnfilterT;
         private System.Windows.Forms.Button btnnamesearch;
         private System.Windows.Forms.TextBox txtTenthuocsearch;
         private System.Windows.Forms.DataGridView grdCTNhap;

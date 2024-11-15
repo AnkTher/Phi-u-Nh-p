@@ -111,41 +111,61 @@ namespace QL_Pharmacy
         }
 
         private void comTentruong_SelectedIndexChanged(object sender, EventArgs e)
+
         {
-            //tim theo ma hang lay vao combobox
-            if (comTentruong.Text != "tenncc")
+            try
             {
-                sql = "select distinct MaPhieuNhap, " + comTentruong.Text + " from dbo.NhapThuoc WHERE '" + comTentruong.Text + "' IS NOT NULL AND '" + comTentruong.Text + "' <> ''";
-                da = new SqlDataAdapter(sql, conn);
-                comdt.Clear();
-                da.Fill(comdt);
-                comGT.DataSource = comdt;
-                comGT.DisplayMember = comTentruong.Text;
-            }
-            else
-            {
-                sql = "select distinct MaPhieuNhap, tenncc from dbo.NhapThuoc WHERE tenncc IS NOT NULL AND tenncc <> ''";
-                da = new SqlDataAdapter(sql, conn);
-                comdt.Clear();
-                da.Fill(comdt);
-                comGT.DataSource = comdt;
-                comGT.DisplayMember = "tenncc";
-                comGT.ValueMember = "tenncc";
-            }
-            if (comTentruong.SelectedItem != null)
-            {
-                string selectedField = comTentruong.SelectedItem.ToString();
+                // Mở kết nối nếu chưa mở
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
 
-                // Xử lý để lấy các giá trị khác nhau thuộc trường đã chọn
-                sql = $"SELECT DISTINCT {selectedField} FROM dbo.NhapThuoc WHERE {selectedField} IS NOT NULL AND {selectedField} <> ''"; // Sử dụng SELECT DISTINCT
-                da = new SqlDataAdapter(sql, conn);
-                comdt.Clear();
-                da.Fill(comdt);
+                // Kiểm tra lựa chọn của combobox comTentruong
+                string selectedField = comTentruong.SelectedItem?.ToString();
 
-                // Cập nhật nguồn dữ liệu cho comGT
-                comGT.DataSource = comdt;
-                comGT.DisplayMember = selectedField; // Hiển thị giá trị của trường đã chọn
-                comGT.ValueMember = selectedField; // Giá trị tương ứng
+                // Kiểm tra nếu người dùng chưa chọn trường
+                if (string.IsNullOrEmpty(selectedField))
+                {
+                    return; // Nếu chưa chọn trường, không làm gì
+                }
+
+                // Xây dựng câu truy vấn SQL dựa trên lựa chọn
+                string fieldName = string.Empty;
+                string displayMember = string.Empty;
+
+                // Định nghĩa các trường đặc biệt
+                if (selectedField == "Nhà cung cấp")
+                {
+                    fieldName = "tenncc";
+                    displayMember = "tenncc";
+                }
+                else if (selectedField == "Thủ kho nhập")
+                {
+                    fieldName = "thukhonhap";
+                    displayMember = "thukhonhap";
+                }
+
+                // Nếu trường hợp hợp lệ, thực hiện truy vấn SQL
+                if (!string.IsNullOrEmpty(fieldName))
+                {
+                    sql = $"SELECT DISTINCT MaPhieuNhap, {fieldName} FROM dbo.NhapThuoc WHERE {fieldName} IS NOT NULL AND {fieldName} <> ''";
+                    da = new SqlDataAdapter(sql, conn);
+                    comdt.Clear();
+                    da.Fill(comdt);
+                    // Lọc trùng lặp bằng DataView
+                    DataView dv = new DataView(comdt);
+                    DataTable dtFiltered = dv.ToTable(true, fieldName); // Chỉ lấy các giá trị duy nhất của trường cần hiển thị
+
+                    // Cập nhật dữ liệu cho combobox comGT
+                    comGT.DataSource = dtFiltered;
+                    comGT.DisplayMember = displayMember;  // Hiển thị giá trị cho combobox
+                    comGT.ValueMember = displayMember;    // Lưu trữ giá trị tương ứng
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -284,17 +304,18 @@ namespace QL_Pharmacy
 
         private void btnfilter_Click(object sender, EventArgs e)
         {
-            sql = "select * from dbo.NhapThuoc Where " + comTentruong.Text + "=N'" + comGT.Text + "'";
+            // Lấy cột tìm kiếm từ ComboBox
+            string Tentruong = comTentruong.SelectedItem?.ToString();
+            //Ánh xạ tên hiển thị trong ComboBox sang tên trường thực tế
+            if (Tentruong == "Thủ kho nhập") Tentruong = "thukhonhap";
+            else if (Tentruong == "Nhà cung cấp") Tentruong = "tenncc";
+            sql = $"select * from dbo.NhapThuoc Where {Tentruong} =N'" + comGT.Text + "'";
             da = new SqlDataAdapter(sql, conn);
             dt.Clear();
             da.Fill(dt);
             grdData.DataSource = dt;
             grdData.Refresh();
             NapCT();
-
-
-
-
         }
 
         private void btndel_Click(object sender, EventArgs e)
@@ -982,7 +1003,7 @@ namespace QL_Pharmacy
             txtslDonViNhap.Text = " ";
             txtGiaNhap.Text = " ";
             txtThanhTien.Text = " ";
-            txtMaThuoc.ReadOnly = false;
+            txtMaThuoc.ReadOnly = true;
             txtSoLo.ReadOnly = false;
             txtNgaySanXuat.ReadOnly = false;
             txtNgayHetHan.ReadOnly = false;
@@ -1024,27 +1045,6 @@ namespace QL_Pharmacy
                 MessageBox.Show("Vui lòng nhập mã thuốc.");
                 return;
             }
-
-            //// Gán dữ liệu từ DataTable vào ComboBox comDV
-            //DataTable dtcomDV = new DataTable();
-            //string sql = $"SELECT ql.dvcoso AS DonVi FROM dbo.QL_Thuoc ql WHERE ql.MaThuoc = '%{txtMaThuoc.Text}%' UNION SELECT qd.DonViQuyDoi AS DonVi FROM dbo.QuyDoiDonVi qd WHERE qd.MaThuoc = '%{txtMaThuoc.Text }%'";
-            //daDV = new SqlDataAdapter(sql, conn);
-            //daDV.Fill(dtcomDV);
-
-            //// Kiểm tra nếu có dữ liệu
-            //if (dtcomDV.Rows.Count > 0)
-            //{
-            //    // Gán dữ liệu vào ComboBox
-            //    comDV.DataSource = dtcomDV;
-            //    comDV.DisplayMember = "DonVi";
-            //    comDV.ValueMember = "DonVi";
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Không tìm thấy đơn vị nào cho mã thuốc này.");
-            //    comDV.DataSource = null;
-            //}
-           
 
             // Lưu chỉ số dòng hiện tại trong `DataGridView` phiếu nhập
             if (grdData.SelectedRows.Count > 0)
@@ -1105,6 +1105,92 @@ namespace QL_Pharmacy
         private string initialGiaNhap;
         private string initialTongTien;
         private string initialThanhTien;
+
+        private void btnnamesearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Kiểm tra trạng thái kết nối
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+
+                // Lấy cột tìm kiếm từ ComboBox
+                string selectedField = comT.SelectedItem?.ToString();
+
+                // Kiểm tra xem người dùng đã chọn trường hay chưa
+                if (string.IsNullOrEmpty(selectedField))
+                {
+                    MessageBox.Show("Vui lòng chọn trường tìm kiếm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                //Ánh xạ tên hiển thị trong ComboBox sang tên trường thực tế
+                if (selectedField == "Mã thuốc") selectedField = "MaThuoc";
+                else if (selectedField == "Tên thuốc") selectedField = "TenThuoc";
+                string searchValue = txtTenthuocsearch.Text.Trim();
+
+                // Kiểm tra xem giá trị tìm kiếm có hợp lệ hay không
+                if (string.IsNullOrEmpty(searchValue))
+                {
+                    MessageBox.Show("Vui lòng nhập giá trị cần tìm kiếm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Tạo câu lệnh SQL tham số hóa
+                string sql = $"SELECT * FROM dbo.QL_Thuoc WHERE {selectedField} LIKE @SearchValue";
+
+                // Sử dụng SqlCommand và SqlDataAdapter
+                SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+                da.SelectCommand.Parameters.AddWithValue("@SearchValue", "%" + searchValue + "%");
+
+                // Tạo DataTable để chứa kết quả
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                // Hiển thị kết quả lên DataGridView hoặc xử lý
+                if (dt.Rows.Count > 0)
+                {
+                    grdT.DataSource = dt;
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy kết quả phù hợp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Đảm bảo đóng kết nối
+                // if (conn.State == ConnectionState.Open) 
+                // {
+                //     conn.Close();
+                // }
+            }
+        }
+
+        private void btnrefreshT_Click(object sender, EventArgs e)
+        {// Kiểm tra kết nối
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                sql = "SELECT MaThuoc, TenThuoc, tenloaithuoc, dvcoso, hangsx FROM dbo.QL_Thuoc ORDER BY MaThuoc";
+                SqlDataAdapter daT = new SqlDataAdapter(sql, conn);
+                DataTable dtT = new DataTable();
+                daT.Fill(dtT);
+                grdT.DataSource = dtT;
+                grdT.Refresh();
+
+                // Xóa dữ liệu trong ComboBox và TextBox
+                comT.SelectedIndex = -1; // Bỏ chọn mục hiện tại trong ComboBox
+                txtTenthuocsearch.Clear(); // Xóa nội dung TextBox
+           
+        }
+
         private bool initialVisibility;
         private bool initialVisibilitydtNSX;
         private bool initialVisibilitydtNHH;
