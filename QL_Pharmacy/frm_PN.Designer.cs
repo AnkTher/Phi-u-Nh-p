@@ -527,6 +527,7 @@
             this.btnreturn.TabIndex = 37;
             this.btnreturn.Text = "Quay lại";
             this.btnreturn.UseVisualStyleBackColor = true;
+            this.btnreturn.Click += new System.EventHandler(this.btnreturn_Click);
             // 
             // button1
             // 
@@ -621,6 +622,7 @@
             this.btndelCT.TabIndex = 43;
             this.btndelCT.Text = "Xóa";
             this.btndelCT.UseVisualStyleBackColor = true;
+            this.btndelCT.Click += new System.EventHandler(this.btndelCT_Click);
             // 
             // btneditCT
             // 
