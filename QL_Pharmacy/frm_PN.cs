@@ -480,6 +480,8 @@ namespace QL_Pharmacy
 
         private void grdCTNhap_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            pnThemCT.Visible = true;
+            pnThemCT.Enabled = true;
             NapCTPN();
         }
 
@@ -534,6 +536,8 @@ namespace QL_Pharmacy
         private void grdCTNhap_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             NapCTPN();
+            pnThemCT.Visible = true;
+            pnThemCT.Enabled = true;
         }
 
 
@@ -992,6 +996,8 @@ namespace QL_Pharmacy
         {
             flag = "add";
             SaveInitialState();
+            pnThemCT.Visible = true;
+            pnThemCT.Enabled = true;
             dtNSX.Visible = true;
             dtNHH.Visible = true;
             txtNgaySanXuat.Visible = false;
@@ -1189,6 +1195,12 @@ namespace QL_Pharmacy
                 comT.SelectedIndex = -1; // Bỏ chọn mục hiện tại trong ComboBox
                 txtTenthuocsearch.Clear(); // Xóa nội dung TextBox
            
+        }
+
+        private void btnclose_Click(object sender, EventArgs e)
+        {
+            pnThemCT.Visible = false;
+            pnThemCT.Enabled = false;
         }
 
         private bool initialVisibility;

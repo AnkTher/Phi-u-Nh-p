@@ -62,11 +62,11 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.comGT = new System.Windows.Forms.ComboBox();
             this.comTentruong = new System.Windows.Forms.ComboBox();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.pnThemCT = new System.Windows.Forms.Panel();
             this.panCTPN = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnreturn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnclose = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dtNHH = new System.Windows.Forms.DateTimePicker();
             this.dtNSX = new System.Windows.Forms.DateTimePicker();
@@ -120,7 +120,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdData)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.panel6.SuspendLayout();
+            this.pnThemCT.SuspendLayout();
             this.panCTPN.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -482,19 +482,21 @@
             this.comTentruong.TabIndex = 16;
             this.comTentruong.SelectedIndexChanged += new System.EventHandler(this.comTentruong_SelectedIndexChanged);
             // 
-            // panel6
+            // pnThemCT
             // 
-            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnThemCT.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel6.Controls.Add(this.panCTPN);
-            this.panel6.Controls.Add(this.panT);
-            this.panel6.Controls.Add(this.label25);
-            this.panel6.Font = new System.Drawing.Font("#9Slide03 Cabin", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.panel6.Location = new System.Drawing.Point(1074, 29);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1040, 1079);
-            this.panel6.TabIndex = 49;
+            this.pnThemCT.Controls.Add(this.panCTPN);
+            this.pnThemCT.Controls.Add(this.panT);
+            this.pnThemCT.Controls.Add(this.label25);
+            this.pnThemCT.Enabled = false;
+            this.pnThemCT.Font = new System.Drawing.Font("#9Slide03 Cabin", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.pnThemCT.Location = new System.Drawing.Point(1074, 29);
+            this.pnThemCT.Name = "pnThemCT";
+            this.pnThemCT.Size = new System.Drawing.Size(1040, 1079);
+            this.pnThemCT.TabIndex = 49;
+            this.pnThemCT.Visible = false;
             // 
             // panCTPN
             // 
@@ -509,10 +511,10 @@
             // 
             this.panel5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel5.Controls.Add(this.btnreturn);
-            this.panel5.Controls.Add(this.button1);
-            this.panel5.Location = new System.Drawing.Point(734, 283);
+            this.panel5.Controls.Add(this.btnclose);
+            this.panel5.Location = new System.Drawing.Point(689, 283);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(253, 46);
+            this.panel5.Size = new System.Drawing.Size(298, 46);
             this.panel5.TabIndex = 47;
             // 
             // btnreturn
@@ -525,14 +527,15 @@
             this.btnreturn.UseVisualStyleBackColor = true;
             this.btnreturn.Click += new System.EventHandler(this.btnreturn_Click);
             // 
-            // button1
+            // btnclose
             // 
-            this.button1.Location = new System.Drawing.Point(142, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 39);
-            this.button1.TabIndex = 36;
-            this.button1.Text = "Kết thúc";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnclose.Location = new System.Drawing.Point(138, 3);
+            this.btnclose.Name = "btnclose";
+            this.btnclose.Size = new System.Drawing.Size(154, 39);
+            this.btnclose.TabIndex = 36;
+            this.btnclose.Text = "Đóng chi tiết";
+            this.btnclose.UseVisualStyleBackColor = true;
+            this.btnclose.Click += new System.EventHandler(this.btnclose_Click);
             // 
             // panel3
             // 
@@ -1016,7 +1019,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("#9Slide03 Cabin Condensed Mediu", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label18.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label18.Location = new System.Drawing.Point(344, 4);
+            this.label18.Location = new System.Drawing.Point(403, 4);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(153, 30);
             this.label18.TabIndex = 17;
@@ -1041,7 +1044,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.pnThemCT);
             this.Controls.Add(this.txttongtien);
             this.Controls.Add(this.grdCTNhap);
             this.Controls.Add(this.groupBox1);
@@ -1061,8 +1064,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
+            this.pnThemCT.ResumeLayout(false);
+            this.pnThemCT.PerformLayout();
             this.panCTPN.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -1115,10 +1118,10 @@
         private System.Windows.Forms.ComboBox comGT;
         private System.Windows.Forms.ComboBox comTentruong;
         private System.Windows.Forms.ComboBox comncc;
-        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel pnThemCT;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btnreturn;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnclose;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btndelCT;
         private System.Windows.Forms.Button btneditCT;
